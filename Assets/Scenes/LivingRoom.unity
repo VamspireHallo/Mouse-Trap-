@@ -1075,7 +1075,6 @@ MonoBehaviour:
   speed: 3
   jumpHeight: 0.9
   grounded: 0
-  canDoubleJump: 0
   animManager: {fileID: 0}
   rb: {fileID: 1054347765}
 --- !u!95 &1054347768
