@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
 
     public bool grounded;
-    public bool canDoubleJump;
+    //public bool canDoubleJump;
 
     public Animator animManager;
     public Rigidbody2D rb;
@@ -31,7 +31,10 @@ public class PlayerController : MonoBehaviour
         transform.Translate(motion * speed * Time.deltaTime);
 
         if(grounded && Input.GetKeyDown(KeyCode.Space) 
-            || !grounded && canDoubleJump && Input.GetKeyDown(KeyCode.Space)){
+            //|| !grounded && canDoubleJump && Input.GetKeyDown(KeyCode.Space)
+            )
+        {
+            animManager.SetBool("isJumping", true);
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpHeight * 500);
 
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
                 grounded = false;
             }
             else{
-                canDoubleJump = false;
+                //canDoubleJump = false;
             }
         }
 
@@ -61,7 +64,8 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("ground")){
             grounded = true;
-            canDoubleJump = true;
+            //canDoubleJump = true;
+            animManager.SetBool("isJumping", false);
 
             GameObject temp = Instantiate(dustPrefab);
             temp.transform.position = transform.position;

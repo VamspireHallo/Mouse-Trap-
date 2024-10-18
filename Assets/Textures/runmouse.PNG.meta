@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0d3e706613c352e4ba42b4e7688ea007
+guid: d4957affa0ba5534989d8854a2cca1cf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idlemouse_0
+      name: runmouse_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b4d369507295364c9303940b24021b1
-      internalID: 328202806
+      spriteID: e466bf3bc72c4b149b2406883c21468c
+      internalID: -1783514308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idlemouse_1
+      name: runmouse_1
       rect:
         serializedVersion: 2
         x: 200
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ad82d3e6c6119244b2fe1b095dde139
-      internalID: 213416451
+      spriteID: ce4de1e9bf38d4248a78fd68bbfbed76
+      internalID: -1026550036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idlemouse_2
+      name: runmouse_2
       rect:
         serializedVersion: 2
         x: 400
@@ -166,8 +166,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70bbf241eb8ce8a4591252ae4160ffd5
-      internalID: -130646352
+      spriteID: a7ed7c958b722bc49b2f72b8e63ec90e
+      internalID: -1427473775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runmouse_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c8a9f21f6df3a4b9f0182e518051dc
+      internalID: -277855190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: runmouse_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3cd18b238e07746ad61cd3c32f099b
+      internalID: -430852397
       vertices: []
       indices: 
       edges: []
@@ -183,9 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      idlemouse_0: 328202806
-      idlemouse_1: 213416451
-      idlemouse_2: -130646352
+      runmouse_0: -1783514308
+      runmouse_1: -1026550036
+      runmouse_2: -1427473775
+      runmouse_3: -277855190
+      runmouse_4: -430852397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
