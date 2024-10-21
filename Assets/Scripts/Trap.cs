@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    [SerializeField] public float damage;
+    [SerializeField] public float knockbackForce = 10f; // The strength of the knockback
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
+            // Apply damage
             collision.GetComponent<Health>().TakeDamage(damage);
+
+            // Apply knockback
+            Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
+            if (playerRb != null)
+            {
+                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                playerRb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            }
         }
     }
 

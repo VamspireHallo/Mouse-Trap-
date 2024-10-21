@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dustPrefab: {fileID: 0}
   speed: 3
-  jumpHeight: 0.9
+  jumpHeight: 1
   grounded: 0
   animManager: {fileID: 0}
   rb: {fileID: 1054347765}
