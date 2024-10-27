@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NoteInteraction : MonoBehaviour
+public class InteractableObj : MonoBehaviour
 {
     [SerializeField] public GameObject noteUI; // Reference to the UI Canvas or Panel for the note
     [SerializeField] public GameObject pressPrompt;
