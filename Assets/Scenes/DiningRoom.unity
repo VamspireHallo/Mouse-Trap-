@@ -5359,7 +5359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afd5c57113c264478e28f5372924312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: TheEnd
+  sceneName: Kitchen
 --- !u!1 &2090678059
 GameObject:
   m_ObjectHideFlags: 0
