@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class InteractableObj : MonoBehaviour
 {
-    [SerializeField] public GameObject noteUI; // Reference to the UI Canvas or Panel for the note
+    [SerializeField] public GameObject objUI; // Reference to the UI Canvas or Panel for the obj
     [SerializeField] public GameObject pressPrompt;
     private bool isPlayerNearby = false;
-    private bool isNoteOpen = false;
+    private bool isObjOpen = false;
     
-    private SpriteRenderer spriteRenderer; // Reference to the note's sprite renderer
+    private SpriteRenderer spriteRenderer; // Reference to the obj's sprite renderer
     [SerializeField] public Color normalColor;
     [SerializeField] public Color glowColor;
 
     void Start()
     {
-        // Initially, the note UI should be hidden
-        noteUI.SetActive(false);
+        // Initially, the obj UI should be hidden
+        objUI.SetActive(false);
         pressPrompt.gameObject.SetActive(false);
 
         // Get the SpriteRenderer component to change color later
@@ -27,21 +27,21 @@ public class InteractableObj : MonoBehaviour
 
     void Update()
     {
-        // Check if player presses "Z" and is near the note
+        // Check if player presses "Z" and is near the obj
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.Z))
         {
-            if (!isNoteOpen)
+            if (!isObjOpen)
             {
-                OpenNote();
+                OpenObj();
             }
             else
             {
-                CloseNote();
+                CloseObj();
             }
         }
     }
 
-    // When the player enters the trigger area (near the note object)
+    // When the player enters the trigger area (near the obj object)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -63,21 +63,21 @@ public class InteractableObj : MonoBehaviour
         }
     }
 
-    // Function to open the note
-    private void OpenNote()
+    // Function to open the obj
+    private void OpenObj()
     {
         pressPrompt.gameObject.SetActive(false); // Remove prompt from screen
-        noteUI.SetActive(true); // Show the note UI
-        isNoteOpen = true;
-        // Optional: Pause the game or movement while the note is open
+        objUI.SetActive(true); // Show the obj UI
+        isObjOpen = true;
+        // Optional: Pause the game or movement while the obj is open
         Time.timeScale = 0f; // This will pause the game
     }
 
-    // Function to close the note
-    private void CloseNote()
+    // Function to close the obj
+    private void CloseObj()
     {
-        noteUI.SetActive(false); // Hide the note UI
-        isNoteOpen = false;
+        objUI.SetActive(false); // Hide the obj UI
+        isObjOpen = false;
         // Optional: Resume the game or movement if you paused it
         Time.timeScale = 1f; // This will resume the game
     }
