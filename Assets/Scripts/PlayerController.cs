@@ -71,12 +71,4 @@ public class PlayerController : MonoBehaviour
             temp.transform.position = transform.position;
         }
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("ground"))
-        {
-            grounded = false;
-        }
-    }
 }
