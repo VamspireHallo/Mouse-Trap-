@@ -1011,7 +1011,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 1023544593
+  m_SortingLayerID: 91548057
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &683222427
@@ -1127,7 +1127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: DiningRoom
-  pressPrompt: {fileID: 559074868}
 --- !u!1 &729617982
 GameObject:
   m_ObjectHideFlags: 0
