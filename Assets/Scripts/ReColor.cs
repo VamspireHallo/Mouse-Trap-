@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ReColor : MonoBehaviour
 {
-    private bool isPlayerNearby = false;
-    
     private SpriteRenderer spriteRenderer; // Reference to the obj's sprite renderer
     [SerializeField] public Color normalColor;
     [SerializeField] public Color glowColor;
@@ -28,7 +26,6 @@ public class ReColor : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isPlayerNearby = true;
             spriteRenderer.color = glowColor; // Change to the glowing color
         }
     }
@@ -38,7 +35,6 @@ public class ReColor : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isPlayerNearby = false;
             spriteRenderer.color = normalColor; // Revert to the normal color
         }
     }

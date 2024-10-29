@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject dustPrefab;
+    //public GameObject dustPrefab;
 
     public float speed;
     public float jumpHeight;
 
     public bool grounded;
-    //public bool canDoubleJump;
 
     public Animator animManager;
     public Rigidbody2D rb;
@@ -39,9 +38,6 @@ public class PlayerController : MonoBehaviour
             if(grounded){
                 grounded = false;
             }
-            else{
-                //canDoubleJump = false;
-            }
         }
 
         if(motion.x != 0){
@@ -62,11 +58,10 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OneWayPlatform")){
             grounded = true;
-            //canDoubleJump = true;
             animManager.SetBool("isJumping", false);
 
-            GameObject temp = Instantiate(dustPrefab);
-            temp.transform.position = transform.position;
+            //GameObject temp = Instantiate(dustPrefab);
+            //temp.transform.position = transform.position;
         }
     }
 }
