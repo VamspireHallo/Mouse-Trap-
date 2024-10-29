@@ -30,9 +30,7 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(motion * speed * Time.deltaTime);
 
-        if(grounded && Input.GetKeyDown(KeyCode.Space) 
-            //|| !grounded && canDoubleJump && Input.GetKeyDown(KeyCode.Space)
-            )
+        if(grounded && Input.GetKeyDown(KeyCode.Space))
         {
             animManager.SetBool("isJumping", true);
             rb.velocity = Vector2.zero;
@@ -62,7 +60,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.CompareTag("ground")){
+        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OneWayPlatform")){
             grounded = true;
             //canDoubleJump = true;
             animManager.SetBool("isJumping", false);
