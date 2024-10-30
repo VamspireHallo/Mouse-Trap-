@@ -34,10 +34,7 @@ public class PlayerController : MonoBehaviour
             animManager.SetBool("isJumping", true);
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpHeight * 500);
-
-            if(grounded){
-                grounded = false;
-            }
+            grounded = false;
         }
 
         if(motion.x != 0){
@@ -63,5 +60,19 @@ public class PlayerController : MonoBehaviour
             //GameObject temp = Instantiate(dustPrefab);
             //temp.transform.position = transform.position;
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // Reset grounded when leaving one-way platform
+        if (collision.gameObject.CompareTag("OneWayPlatform"))
+        {
+            grounded = false;
+        }
+    }
+
+    public void PlayHurtAnimation()
+    {
+        animManager.SetTrigger("Hurt");
     }
 }

@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
     public float currentHealth {get; private set;}
+    private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0){
-
+            //playerController.PlayHurtAnimation();
         }
 
         else{
