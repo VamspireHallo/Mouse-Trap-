@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             animManager.SetBool("isJumping", true);
             rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * jumpHeight * 500);
+            rb.AddForce(Vector2.up * jumpHeight * 900);
             grounded = false;
         }
 
