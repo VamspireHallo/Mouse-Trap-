@@ -1746,6 +1746,7 @@ MonoBehaviour:
   speed: 3
   jumpHeight: 1
   grounded: 0
+  JUMPING: 0
   animManager: {fileID: 1054347768}
   rb: {fileID: 1054347765}
 --- !u!95 &1054347768
@@ -1782,6 +1783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+  animManager: {fileID: 0}
 --- !u!114 &1054347770
 MonoBehaviour:
   m_ObjectHideFlags: 0

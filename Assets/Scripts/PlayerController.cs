@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
         else if(motion.x > 0){
             GetComponent<SpriteRenderer>().flipX = false;
         }
+
+        animManager.SetFloat("yVelocity", rb.velocity.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         // Reset grounded when leaving one-way platform
@@ -69,10 +72,5 @@ public class PlayerController : MonoBehaviour
         {
             grounded = false;
         }
-    }
-
-    public void PlayHurtAnimation()
-    {
-        animManager.SetTrigger("Hurt");
     }
 }

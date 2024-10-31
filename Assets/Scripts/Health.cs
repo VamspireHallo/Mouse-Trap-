@@ -7,12 +7,13 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
     public float currentHealth {get; private set;}
-    private PlayerController playerController;
+    public Animator animManager;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = startingHealth;
+        animManager = GetComponent<Animator>();
     }
 
     public void TakeDamage(float _damage)
@@ -20,7 +21,7 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0){
-            //playerController.PlayHurtAnimation();
+            animManager.SetTrigger("isHurt");
         }
 
         else{
@@ -31,6 +32,11 @@ public class Health : MonoBehaviour
     private void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Hurt()
+    {
+        animManager.SetTrigger("isHurt");
     }
 
     // Update is called once per frame
