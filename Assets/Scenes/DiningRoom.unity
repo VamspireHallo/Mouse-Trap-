@@ -4816,8 +4816,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpHeight: 1
-  maxJumpTime: 0.5
   grounded: 1
+  jumpTime: 0
   animManager: {fileID: 1182684232}
   rb: {fileID: 1182684234}
 --- !u!50 &1182684234
@@ -6402,7 +6402,7 @@ PolygonCollider2D:
       - {x: -0.899129, y: 1.1490052}
       - {x: -0.9080643, y: -0.83627474}
       - {x: 0.45149672, y: -0.82264566}
-      - {x: 1.4030533, y: 1.140552}
+      - {x: 1.044136, y: 0.27587032}
   m_UseDelaunayMesh: 0
 --- !u!1 &1603697917
 GameObject:
