@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
 
     public bool grounded;
+    public float jumpTime;
 
     public Animator animManager;
     public Rigidbody2D rb;
@@ -33,7 +34,12 @@ public class PlayerController : MonoBehaviour
         {
             animManager.SetBool("isJumping", true);
             rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * jumpHeight * 900);
+            jumpTime = 0f;
+            while(Input.GetKeyDown(KeyCode.Space) && jumpTime < 1f)
+            {
+                jumpTime += 0.2f;
+            }
+            rb.AddForce(Vector2.up * jumpHeight * 500 * jumpTime);
             grounded = false;
         }
 
