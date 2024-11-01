@@ -7,6 +7,8 @@ public class PlayerOneWay : MonoBehaviour
     private GameObject currentOneWayPlatform;
     [SerializeField] private BoxCollider2D playerCollider;
     public Animator animManager;
+    public PlayerController playerController;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,7 @@ public class PlayerOneWay : MonoBehaviour
         }
 
         animManager = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,7 +31,17 @@ public class PlayerOneWay : MonoBehaviour
             StartCoroutine(DisableCollision());
         }
 
-        // Set isJumping based on actual jumping conditions (this might come from a PlayerController)
+        // Set isFalling based on downward movement and if down key is held
+        if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && rb.velocity.y < 0)
+        {
+            animManager.SetBool("isFalling", true);
+        }
+        else if (playerController.grounded)
+        {
+            animManager.SetBool("isFalling", false);  // Reset isFalling when grounded
+        }
+
+        // Set isJumping based on upward movement
         if (!animManager.GetBool("isJumping") && IsPlayerJumping())
         {
             animManager.SetBool("isJumping", true);
@@ -38,7 +51,7 @@ public class PlayerOneWay : MonoBehaviour
     private bool IsPlayerJumping()
     {
         // Check upward velocity as a condition for jumping
-        return GetComponent<Rigidbody2D>().velocity.y > 0.1f;
+        return rb.velocity.y > 0.1f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

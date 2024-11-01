@@ -2093,6 +2093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 1054347766}
   animManager: {fileID: 1054347768}
+  playerController: {fileID: 1054347767}
 --- !u!1 &1112344225
 GameObject:
   m_ObjectHideFlags: 0
