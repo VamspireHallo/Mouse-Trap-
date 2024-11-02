@@ -32,10 +32,12 @@ public class InteractableObj : MonoBehaviour
         {
             if (!isObjOpen)
             {
+                SoundManager.PlaySound("open");
                 OpenObj();
             }
             else
             {
+                SoundManager.PlaySound("close");
                 CloseObj();
             }
         }

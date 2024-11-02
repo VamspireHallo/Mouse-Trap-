@@ -11,16 +11,18 @@ public class PlayerController : MonoBehaviour
 
     public bool grounded;
     public float jumpTime;
+    public bool isRunning;
 
     public Animator animManager;
     public Rigidbody2D rb;
-
+    private static AudioSource audioSrc;
 
     // Start is called before the first frame update
     void Start()
     {
         animManager = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
         if(grounded && Input.GetKeyDown(KeyCode.Space))
         {
+            SoundManager.PlaySound("jump");
             animManager.SetBool("isJumping", true);
             rb.velocity = Vector2.zero;
             jumpTime = 0f;
@@ -43,17 +46,35 @@ public class PlayerController : MonoBehaviour
             grounded = false;
         }
 
-        if(motion.x != 0){
-            animManager.SetBool("isMoving", true);
+        if(motion.x != 0)
+        {
+            isRunning = true;
+            animManager.SetBool("isMoving", isRunning);
         }
-        else{
-            animManager.SetBool("isMoving", false);
+        else
+        {
+            isRunning = false;
+            animManager.SetBool("isMoving", isRunning);
         }
 
-        if(motion.x < 0){
+        if(isRunning)
+        {
+            if (!audioSrc.isPlaying)
+            {
+                audioSrc.Play();
+            }  
+        }
+        else
+        {
+            audioSrc.Stop();
+        }
+
+        if(motion.x < 0)
+        {
             GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if(motion.x > 0){
+        else if(motion.x > 0)
+        {
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
@@ -63,6 +84,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OneWayPlatform")){
             grounded = true;
+            SoundManager.PlaySound("fall");
             animManager.SetBool("isJumping", false);
 
             //GameObject temp = Instantiate(dustPrefab);

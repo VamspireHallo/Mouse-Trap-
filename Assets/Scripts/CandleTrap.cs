@@ -13,6 +13,7 @@ public class CandleTrap : Trap
         if (collision.CompareTag("Player"))
         {
             // Apply knockback
+            SoundManager.PlaySound("candle");
             Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
             if (playerRb != null)
             {
