@@ -6,6 +6,8 @@ public class SoundManager : MonoBehaviour
 {
     public AudioClip PlayerJump;
     public AudioClip CandleHurt;
+    public AudioClip MTHurt;
+    public AudioClip GlueHurt;
     public AudioClip ObjOpen;
     public AudioClip ObjClose;
 
@@ -35,6 +37,12 @@ public class SoundManager : MonoBehaviour
                 break;
             case "candle":
                 audioSrc.PlayOneShot(instance.CandleHurt);
+                break;
+            case "mousetrap":
+                audioSrc.PlayOneShot(instance.MTHurt);
+                break;
+            case "gluetrap":
+                audioSrc.PlayOneShot(instance.GlueHurt);
                 break;
             case "open":
                 audioSrc.PlayOneShot(instance.ObjOpen);

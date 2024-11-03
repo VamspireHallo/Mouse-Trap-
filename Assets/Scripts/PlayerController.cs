@@ -84,21 +84,11 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OneWayPlatform")){
             grounded = true;
-            SoundManager.PlaySound("fall");
             animManager.SetBool("isJumping", false);
 
             //GameObject temp = Instantiate(dustPrefab);
             //temp.transform.position = transform.position;
         }
     }
-
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // Reset grounded when leaving one-way platform
-        if (collision.gameObject.CompareTag("OneWayPlatform"))
-        {
-            grounded = false;
-        }
-    }
+   
 }

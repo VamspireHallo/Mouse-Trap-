@@ -12,6 +12,7 @@ public class GlueTrap : Trap
     {
         if (collision.CompareTag("Player"))
         {
+            SoundManager.PlaySound("gluetrap");
             base.OnTriggerEnter2D(collision); // Apply initial damage using the parent Trap script
 
             playerController = collision.GetComponent<PlayerController>();
