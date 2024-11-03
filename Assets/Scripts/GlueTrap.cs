@@ -8,7 +8,7 @@ public class GlueTrap : Trap
     public PlayerController playerController;
     public float nextDamageTime = 0f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -18,6 +18,7 @@ public class GlueTrap : Trap
             playerController = collision.GetComponent<PlayerController>();
             if (playerController != null)
             {
+                collision.transform.position = transform.position;
                 // Stop the player's movement
                 playerController.speed = 0;
                 nextDamageTime = Time.time + damageRate;
@@ -40,7 +41,7 @@ public class GlueTrap : Trap
         if (collision.CompareTag("Player") && playerController != null)
         {
             // Restore the player's movement when they leave the glue trap
-            playerController.speed = 5f; // Set this to your player's normal speed
+            playerController.speed = 3f; // Set this to your player's normal speed
         }
     }
 }
