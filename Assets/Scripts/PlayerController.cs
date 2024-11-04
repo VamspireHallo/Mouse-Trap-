@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(motion * speed * Time.deltaTime);
 
+        if(grounded)
+        {
+            animManager.SetBool("isJumping", false);
+        }
+
         if(grounded && Input.GetKeyDown(KeyCode.Space))
         {
             SoundManager.PlaySound("jump");
@@ -82,12 +87,21 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OneWayPlatform")){
+        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OneWayPlatform"))
+        {
             grounded = true;
             animManager.SetBool("isJumping", false);
 
             //GameObject temp = Instantiate(dustPrefab);
             //temp.transform.position = transform.position;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OneWayPlatform"))
+        {
+            grounded = false;
         }
     }
    
