@@ -242,7 +242,7 @@ Transform:
   m_GameObject: {fileID: 212095211}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3633373, y: 1.6500101, z: -10}
+  m_LocalPosition: {x: 3.3633373, y: 1.76001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1948,7 +1948,7 @@ Transform:
   m_GameObject: {fileID: 1054347762}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.03, y: -2.65, z: -2}
+  m_LocalPosition: {x: -4.03, y: -2.76, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3307,7 +3307,7 @@ Transform:
   m_GameObject: {fileID: 1426543219}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.03, y: -2.65, z: -12}
+  m_LocalPosition: {x: -4.03, y: -2.76, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4626,8 +4626,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerJump: {fileID: 8300000, guid: ded99fd1daef3c241a4931cb9e982477, type: 3}
-  PlayerFall: {fileID: 8300000, guid: d8ed70520cd420a4eb15ddbc8722dcad, type: 3}
   CandleHurt: {fileID: 8300000, guid: a4043bebd21c34c4487ba7b30b51838b, type: 3}
+  MTHurt: {fileID: 0}
+  GlueHurt: {fileID: 0}
   ObjOpen: {fileID: 8300000, guid: 69f988bf34bba6049a46eded1bdc0a92, type: 3}
   ObjClose: {fileID: 8300000, guid: b709dd878e6e11a47942b6cb7621303c, type: 3}
 --- !u!82 &2146657338
