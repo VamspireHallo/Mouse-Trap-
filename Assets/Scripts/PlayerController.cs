@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public bool grounded;
     public float jumpTime;
     public bool isRunning;
+    public bool isFalling;
 
     public Animator animManager;
     public Rigidbody2D rb;
@@ -91,18 +92,19 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
             animManager.SetBool("isJumping", false);
-
-            //GameObject temp = Instantiate(dustPrefab);
-            //temp.transform.position = transform.position;
+            animManager.SetBool("isFalling", false);
         }
     }
 
+// For falling anim, needs to not colide with the side of the ground
+/*
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("OneWayPlatform"))
         {
             grounded = false;
+            animManager.SetBool("isFalling", true);
         }
     }
-   
+*/
 }
