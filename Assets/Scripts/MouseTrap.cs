@@ -5,6 +5,13 @@ using UnityEngine;
 public class MouseTrap : Trap
 {
     [SerializeField] public float knockbackForce; // Strength of the knockback
+    private Animator animator;
+
+    void Start()
+    {
+        // Initialize the animator
+        animator = GetComponent<Animator>();
+    }
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +19,11 @@ public class MouseTrap : Trap
 
         if (collision.CompareTag("Player"))
         {
+            if (animator != null)
+            {
+                animator.SetTrigger("CloseTrap");
+            }
+            
             // Apply knockback
             SoundManager.PlaySound("mousetrap");
             Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
