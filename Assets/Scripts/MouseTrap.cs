@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseTrap : Trap
 {
-    [SerializeField] public float knockbackForce = 100f; // Strength of the knockback
+    [SerializeField] public float knockbackForce; // Strength of the knockback
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {

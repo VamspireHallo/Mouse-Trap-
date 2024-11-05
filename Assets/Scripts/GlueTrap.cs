@@ -28,12 +28,14 @@ public class GlueTrap : Trap
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        /*
         if (collision.CompareTag("Player") && playerController != null && Time.time >= nextDamageTime)
         {
             // Decrement health over time
             collision.GetComponent<Health>().TakeDamage(damage);
             nextDamageTime = Time.time + damageRate;
         }
+        */
     }
 
     private void OnTriggerExit2D(Collider2D collision)
