@@ -1073,6 +1073,7 @@ MonoBehaviour:
   pressPrompt: {fileID: 1797330590}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
+  playerController: {fileID: 1182684233}
 --- !u!1 &114356863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1326,7 @@ MonoBehaviour:
   pressPrompt: {fileID: 1901950010}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
+  playerController: {fileID: 1182684233}
 --- !u!1 &130758041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,6 +2721,7 @@ MonoBehaviour:
   pressPrompt: {fileID: 1767206630}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
+  playerController: {fileID: 1182684233}
 --- !u!1 &556389219
 GameObject:
   m_ObjectHideFlags: 0
@@ -5445,6 +5448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0c8ec2a277a85449792825804cdef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1182684233}
 --- !u!1 &1205650709
 GameObject:
   m_ObjectHideFlags: 0

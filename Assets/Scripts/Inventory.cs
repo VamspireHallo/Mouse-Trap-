@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
     private int currentIndex = 0;
     private bool inventoryOpen = false;
 
+    [SerializeField] private PlayerController playerController;
     void Update()
     {
         // Toggle the inventory view when the player presses "X"
@@ -45,10 +46,12 @@ public class Inventory : MonoBehaviour
         if (inventoryOpen)
         {
             ShowCurrentObjUI();
+            playerController.enabled = false;
         }
         else
         {
             HideAllObjUIs();
+            playerController.enabled = true;
         }
     }
 

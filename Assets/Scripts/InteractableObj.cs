@@ -14,6 +14,7 @@ public class InteractableObj : MonoBehaviour
     [SerializeField] public Color glowColor;
 
     private Inventory playerInventory;
+    [SerializeField] private PlayerController playerController;
 
     void Start()
     {
@@ -34,11 +35,13 @@ public class InteractableObj : MonoBehaviour
             {
                 SoundManager.PlaySound("open");
                 OpenObj();
+                playerController.enabled = false;
             }
             else
             {
                 SoundManager.PlaySound("close");
                 CloseObj();
+                playerController.enabled = true;
             }
         }
     }
