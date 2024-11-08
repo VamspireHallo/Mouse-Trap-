@@ -5,7 +5,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; } // Singleton instance
 
-    private List<GameObject> collectedObjects = new List<GameObject>();
+    private List<GameObject> collectedObjects = new List<GameObject>(); // Stores inventory objects
     private int currentIndex = 0;
     private bool inventoryOpen = false;
 
@@ -31,14 +31,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void AddToInventory(GameObject obj)
+    // Add inventory object directly to the list
+    public void AddToInventory(GameObject inventoryObj)
     {
-        if (!collectedObjects.Contains(obj))
+        if (inventoryObj != null && !collectedObjects.Contains(inventoryObj))
         {
-            collectedObjects.Add(obj);
+            collectedObjects.Add(inventoryObj);
         }
     }
 
+    // Toggles the inventory view on and off
     public void ToggleInventory()
     {
         inventoryOpen = !inventoryOpen;
@@ -55,6 +57,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    // Scrolls through inventory items
     public void ScrollInventory(int direction)
     {
         if (!inventoryOpen || collectedObjects.Count == 0) return;
@@ -64,41 +67,32 @@ public class Inventory : MonoBehaviour
         ShowCurrentObjUI();
     }
 
+    // Shows the UI of the currently selected inventory item
     private void ShowCurrentObjUI()
     {
         if (collectedObjects.Count > 0)
         {
             GameObject currentObj = collectedObjects[currentIndex];
-            InteractableObj interactable = currentObj.GetComponent<InteractableObj>();
-            if (interactable != null && interactable.objUI != null)
-            {
-                interactable.objUI.SetActive(true);
-            }
+            currentObj.SetActive(true); // Activate inventory UI for the current object
         }
     }
 
+    // Hides the UI of the currently selected inventory item
     private void HideCurrentObjUI()
     {
         if (collectedObjects.Count > 0)
         {
             GameObject currentObj = collectedObjects[currentIndex];
-            InteractableObj interactable = currentObj.GetComponent<InteractableObj>();
-            if (interactable != null && interactable.objUI != null)
-            {
-                interactable.objUI.SetActive(false);
-            }
+            currentObj.SetActive(false); // Deactivate inventory UI for the current object
         }
     }
 
+    // Hides all inventory item UIs when the inventory is closed
     private void HideAllObjUIs()
     {
         foreach (var obj in collectedObjects)
         {
-            InteractableObj interactable = obj.GetComponent<InteractableObj>();
-            if (interactable != null && interactable.objUI != null)
-            {
-                interactable.objUI.SetActive(false);
-            }
+            obj.SetActive(false);
         }
     }
 }

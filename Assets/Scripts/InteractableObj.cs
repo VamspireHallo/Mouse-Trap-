@@ -21,6 +21,7 @@ public class InteractableObj : MonoBehaviour
     {
         objUI.SetActive(false);
         pressPrompt.SetActive(false);
+        inventoryObj.SetActive(false);
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = normalColor;
 
