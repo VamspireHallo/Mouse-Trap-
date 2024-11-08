@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory Instance { get; private set; } // Singleton instance
-
     private List<GameObject> collectedObjects = new List<GameObject>(); // Stores inventory objects
     private int currentIndex = 0;
     private bool inventoryOpen = false;
@@ -48,12 +46,12 @@ public class Inventory : MonoBehaviour
         if (inventoryOpen)
         {
             ShowCurrentObjUI();
-            playerController.enabled = false;
+            Time.timeScale = 0f;
         }
         else
         {
             HideAllObjUIs();
-            playerController.enabled = true;
+            Time.timeScale = 1f;
         }
     }
 
