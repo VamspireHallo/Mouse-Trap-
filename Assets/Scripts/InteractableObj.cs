@@ -6,25 +6,25 @@ public class InteractableObj : MonoBehaviour
 {
     [SerializeField] public GameObject objUI; 
     [SerializeField] public GameObject pressPrompt;
+    [SerializeField] public GameObject inventoryObj; // Object to be added to inventory
+
     private bool isPlayerNearby = false;
     private bool isObjOpen = false;
-    
     private SpriteRenderer spriteRenderer;
-    [SerializeField] public Color normalColor;
-    [SerializeField] public Color glowColor;
-
     private Inventory playerInventory;
     [SerializeField] private PlayerController playerController;
+
+    [SerializeField] public Color normalColor;
+    [SerializeField] public Color glowColor;
 
     void Start()
     {
         objUI.SetActive(false);
-        pressPrompt.gameObject.SetActive(false);
+        pressPrompt.SetActive(false);
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = normalColor;
 
-        // Locate the player's inventory
-        playerInventory = FindObjectOfType<Inventory>();
+        playerInventory = FindObjectOfType<Inventory>(); // Locate the player's inventory
     }
 
     void Update()
@@ -52,7 +52,7 @@ public class InteractableObj : MonoBehaviour
         {
             isPlayerNearby = true;
             spriteRenderer.color = glowColor;
-            pressPrompt.gameObject.SetActive(true);
+            pressPrompt.SetActive(true);
         }
     }
 
@@ -62,21 +62,21 @@ public class InteractableObj : MonoBehaviour
         {
             isPlayerNearby = false;
             spriteRenderer.color = normalColor;
-            pressPrompt.gameObject.SetActive(false);
+            pressPrompt.SetActive(false);
         }
     }
 
     private void OpenObj()
     {
-        pressPrompt.gameObject.SetActive(false);
+        pressPrompt.SetActive(false);
         objUI.SetActive(true);
         isObjOpen = true;
         Time.timeScale = 0f;
 
-        // Add object to inventory
-        if (playerInventory != null)
+        // Add inventoryObj to inventory if available
+        if (playerInventory != null && inventoryObj != null)
         {
-            playerInventory.AddToInventory(gameObject);
+            playerInventory.AddToInventory(inventoryObj);
         }
     }
 
