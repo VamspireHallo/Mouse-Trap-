@@ -12,19 +12,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject redactedObj; // Reference to the "redacted" object
     [SerializeField] private PlayerController playerController; // Reference to the PlayerController script
 
-    void Awake()
-    {
-        // Implement Singleton pattern
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject); // Destroy any duplicate instances
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject); // Make Inventory persistent across scenes
-    }
-
     void Start()
     {
         if (redactedObj != null)
@@ -53,11 +40,9 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    // Add inventory object by searching for its name
-    public void AddToInventory(string inventoryObjName)
+    // Add inventory object directly to the list
+    public void AddToInventory(GameObject inventoryObj)
     {
-        GameObject inventoryObj = GameObject.Find(inventoryObjName); // Find the object by name
-
         if (inventoryObj != null && !collectedObjects.Contains(inventoryObj))
         {
             // Remove the redactedObj if it's the only item in the inventory
@@ -67,10 +52,6 @@ public class Inventory : MonoBehaviour
             }
 
             collectedObjects.Add(inventoryObj);
-        }
-        else
-        {
-            Debug.LogWarning($"Object with name '{inventoryObjName}' not found or already in inventory.");
         }
     }
 

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InteractableObj : MonoBehaviour
 {
-    [SerializeField] public GameObject objUI;
+    [SerializeField] public GameObject objUI; 
     [SerializeField] public GameObject pressPrompt;
-    [SerializeField] public string inventoryObjName; // Name of the inventory object
+    [SerializeField] public GameObject inventoryObj; // Unique ID for the object
 
     private bool isPlayerNearby = false;
     private bool isObjOpen = false;
@@ -20,6 +20,7 @@ public class InteractableObj : MonoBehaviour
     void Start()
     {
         objUI.SetActive(false);
+        inventoryObj.SetActive(false);
         pressPrompt.SetActive(false);
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = normalColor;
@@ -73,9 +74,9 @@ public class InteractableObj : MonoBehaviour
         isObjOpen = true;
         Time.timeScale = 0f;
 
-        if (playerInventory != null && !string.IsNullOrEmpty(inventoryObjName))
+        if (playerInventory != null && inventoryObj != null)
         {
-            playerInventory.AddToInventory(inventoryObjName); // Add object to inventory by name
+            playerInventory.AddToInventory(inventoryObj);
         }
     }
 
