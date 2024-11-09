@@ -9,6 +9,11 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private PlayerController playerController; // Reference to the PlayerController script
 
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
