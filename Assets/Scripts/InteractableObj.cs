@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InteractableObj : MonoBehaviour
 {
-    [SerializeField] public GameObject objUI; 
+    [SerializeField] public GameObject objUI;
     [SerializeField] public GameObject pressPrompt;
-    [SerializeField] public int inventoryID; // Unique ID for the object
+    [SerializeField] public string inventoryObjName; // Name of the inventory object
 
     private bool isPlayerNearby = false;
     private bool isObjOpen = false;
@@ -73,10 +73,9 @@ public class InteractableObj : MonoBehaviour
         isObjOpen = true;
         Time.timeScale = 0f;
 
-        // Add objNumber to inventory if available
-        if (playerInventory != null)
+        if (playerInventory != null && !string.IsNullOrEmpty(inventoryObjName))
         {
-            playerInventory.AddToInventory(inventoryID);
+            playerInventory.AddToInventory(inventoryObjName); // Add object to inventory by name
         }
     }
 
