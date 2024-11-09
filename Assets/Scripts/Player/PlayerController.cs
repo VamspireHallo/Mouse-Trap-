@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         if(grounded)
         {
-            animManager.SetBool("isJumping", false);
+            //animManager.SetBool("isJumping", false);
         }
 
         if(grounded && Input.GetKeyDown(KeyCode.Space))

@@ -1547,7 +1547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objUI: {fileID: 1147390599}
   pressPrompt: {fileID: 1797330590}
-  inventoryObj: {fileID: 0}
+  inventoryObj: {fileID: 105657084}
   playerController: {fileID: 1182684233}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
@@ -1801,7 +1801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objUI: {fileID: 1786730999}
   pressPrompt: {fileID: 1901950010}
-  inventoryObj: {fileID: 0}
+  inventoryObj: {fileID: 779796129}
   playerController: {fileID: 1182684233}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
@@ -3408,7 +3408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objUI: {fileID: 1370962920}
   pressPrompt: {fileID: 1767206630}
-  inventoryObj: {fileID: 0}
+  inventoryObj: {fileID: 67291231}
   playerController: {fileID: 1182684233}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
@@ -6390,7 +6390,6 @@ GameObject:
   - component: {fileID: 1182684234}
   - component: {fileID: 1182684238}
   - component: {fileID: 1182684233}
-  - component: {fileID: 1182684241}
   - component: {fileID: 1182684232}
   - component: {fileID: 1182684239}
   - component: {fileID: 1182684240}
@@ -6707,20 +6706,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1182684241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182684231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0c8ec2a277a85449792825804cdef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  redactedObj: {fileID: 0}
-  playerController: {fileID: 1182684233}
 --- !u!1 &1205650709
 GameObject:
   m_ObjectHideFlags: 0
