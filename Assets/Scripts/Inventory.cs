@@ -3,16 +3,12 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<GameObject> collectedObjects = new List<GameObject>(); // Stores inventory objects
+    private List<int> collectedItemIDs = new List<int>(); // Stores item IDs instead of GameObjects
     private int currentIndex = 0;
     private bool inventoryOpen = false;
 
     [SerializeField] private PlayerController playerController; // Reference to the PlayerController script
-
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<GameObject> itemPrefabs; // List of all possible items with InventoryItem components
 
     void Update()
     {
@@ -34,68 +30,96 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    // Add inventory object directly to the list
-    public void AddToInventory(GameObject inventoryObj)
+    // Add item ID directly to the list
+    public void AddToInventory(int itemID)
     {
-        if (inventoryObj != null && !collectedObjects.Contains(inventoryObj))
+        if (!collectedItemIDs.Contains(itemID))
         {
-            collectedObjects.Add(inventoryObj);
+            collectedItemIDs.Add(itemID);
         }
     }
 
     // Toggles the inventory view on and off
-    public void ToggleInventory()
+    private void ToggleInventory()
     {
         inventoryOpen = !inventoryOpen;
 
         if (inventoryOpen)
         {
-            ShowCurrentObjUI();
-            Time.timeScale = 0f;
+            ShowCurrentItemUI();
+            playerController.enabled = false; // Disable player control
+            Time.timeScale = 0f; // Pause the game
         }
         else
         {
-            HideAllObjUIs();
-            Time.timeScale = 1f;
+            HideAllItemUIs();
+            playerController.enabled = true; // Enable player control
+            Time.timeScale = 1f; // Resume the game
         }
     }
 
     // Scrolls through inventory items
-    public void ScrollInventory(int direction)
+    private void ScrollInventory(int direction)
     {
-        if (!inventoryOpen || collectedObjects.Count == 0) return;
+        if (!inventoryOpen || collectedItemIDs.Count == 0) return;
 
-        HideCurrentObjUI();
-        currentIndex = (currentIndex + direction + collectedObjects.Count) % collectedObjects.Count;
-        ShowCurrentObjUI();
+        HideCurrentItemUI();
+        currentIndex = (currentIndex + direction + collectedItemIDs.Count) % collectedItemIDs.Count;
+        ShowCurrentItemUI();
+    }
+
+    // Finds an item in itemPrefabs by its ID
+    private GameObject GetItemByID(int itemID)
+    {
+        foreach (GameObject item in itemPrefabs)
+        {
+            InventoryItem inventoryItem = item.GetComponent<InventoryItem>();
+            if (inventoryItem != null && inventoryItem.itemID == itemID)
+            {
+                return item;
+            }
+        }
+        return null;
     }
 
     // Shows the UI of the currently selected inventory item
-    private void ShowCurrentObjUI()
+    private void ShowCurrentItemUI()
     {
-        if (collectedObjects.Count > 0)
+        if (collectedItemIDs.Count > 0)
         {
-            GameObject currentObj = collectedObjects[currentIndex];
-            currentObj.SetActive(true); // Activate inventory UI for the current object
+            int itemID = collectedItemIDs[currentIndex];
+            GameObject currentItem = GetItemByID(itemID);
+            if (currentItem != null)
+            {
+                currentItem.SetActive(true); // Activate inventory UI for the current item
+            }
         }
     }
 
     // Hides the UI of the currently selected inventory item
-    private void HideCurrentObjUI()
+    private void HideCurrentItemUI()
     {
-        if (collectedObjects.Count > 0)
+        if (collectedItemIDs.Count > 0)
         {
-            GameObject currentObj = collectedObjects[currentIndex];
-            currentObj.SetActive(false); // Deactivate inventory UI for the current object
+            int itemID = collectedItemIDs[currentIndex];
+            GameObject currentItem = GetItemByID(itemID);
+            if (currentItem != null)
+            {
+                currentItem.SetActive(false); // Deactivate inventory UI for the current item
+            }
         }
     }
 
     // Hides all inventory item UIs when the inventory is closed
-    private void HideAllObjUIs()
+    private void HideAllItemUIs()
     {
-        foreach (var obj in collectedObjects)
+        foreach (int itemID in collectedItemIDs)
         {
-            obj.SetActive(false);
+            GameObject item = GetItemByID(itemID);
+            if (item != null)
+            {
+                item.SetActive(false);
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ public class InteractableObj : MonoBehaviour
 {
     [SerializeField] public GameObject objUI; 
     [SerializeField] public GameObject pressPrompt;
-    [SerializeField] public GameObject inventoryObj; // Object to be added to inventory
+    [SerializeField] public int inventoryID; // Unique ID for the object
 
     private bool isPlayerNearby = false;
     private bool isObjOpen = false;
@@ -21,7 +21,6 @@ public class InteractableObj : MonoBehaviour
     {
         objUI.SetActive(false);
         pressPrompt.SetActive(false);
-        inventoryObj.SetActive(false);
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = normalColor;
 
@@ -74,10 +73,10 @@ public class InteractableObj : MonoBehaviour
         isObjOpen = true;
         Time.timeScale = 0f;
 
-        // Add inventoryObj to inventory if available
-        if (playerInventory != null && inventoryObj != null)
+        // Add objNumber to inventory if available
+        if (playerInventory != null)
         {
-            playerInventory.AddToInventory(inventoryObj);
+            playerInventory.AddToInventory(inventoryID);
         }
     }
 
