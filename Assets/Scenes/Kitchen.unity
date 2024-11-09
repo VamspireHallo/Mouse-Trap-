@@ -14328,7 +14328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redactedObj: {fileID: 1416077736}
-  playerController: {fileID: 0}
+  playerController: {fileID: 693869142}
 --- !u!4 &1788353042
 Transform:
   m_ObjectHideFlags: 0
