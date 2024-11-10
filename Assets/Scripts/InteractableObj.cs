@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableObj : MonoBehaviour
 {
-    [SerializeField] public GameObject objUI; 
+    [SerializeField] public GameObject objUI;
     [SerializeField] public GameObject pressPrompt;
     [SerializeField] public GameObject inventoryObj; // Unique ID for the object
 
@@ -12,7 +12,7 @@ public class InteractableObj : MonoBehaviour
     private bool isObjOpen = false;
     private SpriteRenderer spriteRenderer;
     private Inventory playerInventory;
-    [SerializeField] private PlayerController playerController;
+    private PlayerController playerController;
 
     [SerializeField] public Color normalColor;
     [SerializeField] public Color glowColor;
@@ -25,6 +25,7 @@ public class InteractableObj : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = normalColor;
 
+        playerController = FindObjectOfType<PlayerController>();
         playerInventory = FindObjectOfType<Inventory>(); // Locate the player's inventory
     }
 

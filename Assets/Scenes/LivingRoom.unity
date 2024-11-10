@@ -705,10 +705,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 311042786}
-  - component: {fileID: 311042787}
   - component: {fileID: 311042785}
   - component: {fileID: 311042784}
   - component: {fileID: 311042783}
+  - component: {fileID: 311042787}
   m_Layer: 5
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -4848,7 +4848,6 @@ MonoBehaviour:
   objUI: {fileID: 1112344225}
   pressPrompt: {fileID: 559074868}
   inventoryObj: {fileID: 320204246}
-  playerController: {fileID: 1054347767}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686274, g: 1, b: 0.56783384, a: 1}
 --- !u!61 &1424526919
@@ -6829,7 +6828,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redactedObj: {fileID: 212007110}
-  playerController: {fileID: 1054347767}
 --- !u!1 &1944619696
 GameObject:
   m_ObjectHideFlags: 0
@@ -7842,5 +7840,5 @@ SceneRoots:
   - {fileID: 572520241}
   - {fileID: 199717772}
   - {fileID: 2146657339}
-  - {fileID: 311042786}
   - {fileID: 1922066075}
+  - {fileID: 311042786}

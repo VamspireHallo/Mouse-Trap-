@@ -10,10 +10,23 @@ public class Inventory : MonoBehaviour
     private bool inventoryOpen = false;
 
     [SerializeField] private GameObject redactedObj; // Reference to the "redacted" object
-    [SerializeField] private PlayerController playerController; // Reference to the PlayerController script
+    private PlayerController playerController; // Reference to the PlayerController script
+
+    void Awake()
+    {
+        // Singleton pattern: ensure only one instance exists
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // Persist this object across scenes
+    }
 
     void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
         if (redactedObj != null)
         {
             redactedObj.SetActive(false); // Ensure redactedObj is hidden by default
@@ -63,12 +76,12 @@ public class Inventory : MonoBehaviour
         if (inventoryOpen)
         {
             ShowCurrentObjUI();
-            playerController.enabled = false; // Disable player movement
+            Time.timeScale = 0f;
         }
         else
         {
             HideAllObjUIs();
-            playerController.enabled = true; // Re-enable player movement
+            Time.timeScale = 1f;
         }
     }
 
