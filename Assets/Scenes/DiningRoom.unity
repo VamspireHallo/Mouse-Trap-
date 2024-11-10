@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objUI: {fileID: 1147390599}
   pressPrompt: {fileID: 1797330590}
-  inventoryObj: {fileID: 1229935888}
+  inventoryID: SR2
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
 --- !u!1 &114356863
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objUI: {fileID: 1786730999}
   pressPrompt: {fileID: 1901950010}
-  inventoryObj: {fileID: 123390150}
+  inventoryID: LP3
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
 --- !u!1 &130758041
@@ -3192,7 +3192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objUI: {fileID: 1370962920}
   pressPrompt: {fileID: 1767206630}
-  inventoryObj: {fileID: 616525051}
+  inventoryID: BN4
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
 --- !u!1 &556389219
@@ -8221,7 +8221,6 @@ GameObject:
   - component: {fileID: 1492928434}
   - component: {fileID: 1492928433}
   - component: {fileID: 1492928432}
-  - component: {fileID: 1492928436}
   m_Layer: 5
   m_Name: Scene2Inventory
   m_TagString: Untagged
@@ -8315,18 +8314,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1492928436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1492928430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc0b9acf1e0ba54a83df4e800ee46e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1501432665
 GameObject:
   m_ObjectHideFlags: 0

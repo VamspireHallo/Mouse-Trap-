@@ -6,7 +6,8 @@ public class InteractableObj : MonoBehaviour
 {
     [SerializeField] public GameObject objUI;
     [SerializeField] public GameObject pressPrompt;
-    [SerializeField] public GameObject inventoryObj; // Object to add to InventoryCollection
+    [SerializeField] public string inventoryID;
+    private GameObject inventoryObj; // Object to add to InventoryCollection
 
     private bool isPlayerNearby = false;
     private bool isObjOpen = false;
@@ -20,8 +21,15 @@ public class InteractableObj : MonoBehaviour
     {
         // Ensure UI elements are hidden initially
         if (objUI != null) objUI.SetActive(false);
-        if (inventoryObj != null) inventoryObj.SetActive(false);
         if (pressPrompt != null) pressPrompt.SetActive(false);
+
+        Canvas canvas = FindObjectOfType<Canvas>();
+        if (canvas != null)
+        {
+            // Search for the object by name in the Canvas' hierarchy
+            inventoryObj = canvas.transform.Find(inventoryID)?.gameObject; 
+            inventoryObj.SetActive(false); 
+        }     
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null) spriteRenderer.color = normalColor;

@@ -16,15 +16,10 @@ public class Inventory : MonoBehaviour
         inventoryCollection = InventoryCollection.Instance;
 
         Canvas canvas = FindObjectOfType<Canvas>();
-
         if (canvas != null)
         {
             // Search for the object by name in the Canvas' hierarchy
             redactedObj = canvas.transform.Find("RedactedNote")?.gameObject;  
-        }
-        else
-        {
-            Debug.Log("Canvas not found.");
         }
 
         if (redactedObj != null)
