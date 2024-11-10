@@ -80,7 +80,6 @@ public class InteractableObj : MonoBehaviour
         // Add object to InventoryCollection if it hasn’t been collected already
         if (InventoryCollection.Instance != null && inventoryObj != null)
         {
-            Debug.Log("Adding object to inventory: " + inventoryObj.name);
             InventoryCollection.Instance.AddObject(inventoryObj);
         }
     }

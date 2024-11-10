@@ -376,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 212007111}
   m_Layer: 5
-  m_Name: Redacted
+  m_Name: RedactedNote
   m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
