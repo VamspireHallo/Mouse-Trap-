@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ReColor : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer; // Reference to the obj's sprite renderer
+    private Image image;
     [SerializeField] public Color normalColor;
     [SerializeField] public Color glowColor;
 
@@ -13,7 +14,15 @@ public class ReColor : MonoBehaviour
     {
         // Get the SpriteRenderer component to change color later
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = normalColor; // Set to the default color at start
+        image = GetComponent<Image>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = normalColor; // Set to the default color for SpriteRenderer
+        }
+        else if (image != null)
+        {
+            image.color = normalColor; // Set to the default color for Image
+        }
     }
 
     void Update()
@@ -26,7 +35,14 @@ public class ReColor : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            spriteRenderer.color = glowColor; // Change to the glowing color
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = glowColor; // Change the color for SpriteRenderer
+            }
+            else if (image != null)
+            {
+                image.color = glowColor; // Change the color for Image
+            }
         }
     }
 
@@ -35,7 +51,14 @@ public class ReColor : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            spriteRenderer.color = normalColor; // Revert to the normal color
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = normalColor; // Revert the color for SpriteRenderer
+            }
+            else if (image != null)
+            {
+                image.color = normalColor; // Revert the color for Image
+            }
         }
     }
 }
