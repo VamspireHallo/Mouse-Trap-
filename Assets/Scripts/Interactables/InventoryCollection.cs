@@ -25,4 +25,12 @@ public class InventoryCollection : MonoBehaviour
             CollectedObjects.Add(obj);
         }
     }
+
+    public void RemoveObject(GameObject obj)
+    {
+        if (obj != null)
+        {
+            CollectedObjects.Remove(obj);
+        }
+    }
 }

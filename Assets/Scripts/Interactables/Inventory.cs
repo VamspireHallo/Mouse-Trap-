@@ -8,12 +8,13 @@ public class Inventory : MonoBehaviour
     private bool inventoryOpen = false;
 
     [SerializeField] private GameObject redactedObj; // Reference to the "redacted" object
-    private PlayerController playerController; // Reference to the PlayerController script
+    [SerializeField] private PlayerController playerController; // Reference to the PlayerController script
 
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
         inventoryCollection = InventoryCollection.Instance;
+
         if (redactedObj != null)
         {
             redactedObj.SetActive(false); // Ensure redactedObj is hidden by default
@@ -45,7 +46,16 @@ public class Inventory : MonoBehaviour
     {
         if (inventoryObj != null)
         {
+            // If it's the first object, remove the redactedObj from the collection
+            if (inventoryCollection.CollectedObjects.Count == 0 && redactedObj != null)
+            {
+                inventoryCollection.RemoveObject(redactedObj); // Remove redactedObj if it's still in the collection
+            }
+
+            // Add the new object to the inventory
             inventoryCollection.AddObject(inventoryObj);
+
+            // Disable redactedObj if any objects are collected
             if (redactedObj != null && inventoryCollection.CollectedObjects.Count > 0)
             {
                 redactedObj.SetActive(false);
@@ -61,11 +71,13 @@ public class Inventory : MonoBehaviour
         if (inventoryOpen)
         {
             ShowCurrentObjUI();
+            playerController.enabled = false;
             Time.timeScale = 0f;
         }
         else
         {
             HideAllObjUIs();
+            playerController.enabled = true;
             Time.timeScale = 1f;
         }
     }

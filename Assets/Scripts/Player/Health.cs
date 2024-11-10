@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
-    public float currentHealth {get; private set;}
+    public float currentHealth { get; private set; }
     public Animator animManager;
 
     // Start is called before the first frame update
@@ -20,17 +20,19 @@ public class Health : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
-        if (currentHealth > 0){
+        if (currentHealth > 0)
+        {
             animManager.SetTrigger("isHurt");
         }
-
-        else{
+        else
+        {
             Die();
         }
     }
 
     private void Die()
     {
+        // Only reload the scene if needed, without affecting the inventory
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -39,12 +41,10 @@ public class Health : MonoBehaviour
         animManager.SetTrigger("isHurt");
     }
 
-    // Update is called once per frame
+    // Reload Function for resetting scene
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
             Die();
     }
-
-    
 }
