@@ -3,30 +3,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory Instance { get; private set; } // Singleton instance
-
-    private List<GameObject> collectedObjects = new List<GameObject>(); // Stores inventory objects
+    private InventoryCollection inventoryCollection;
     private int currentIndex = 0;
     private bool inventoryOpen = false;
 
     [SerializeField] private GameObject redactedObj; // Reference to the "redacted" object
     private PlayerController playerController; // Reference to the PlayerController script
 
-    void Awake()
-    {
-        // Singleton pattern: ensure only one instance exists
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject); // Persist this object across scenes
-    }
-
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
+        inventoryCollection = InventoryCollection.Instance;
         if (redactedObj != null)
         {
             redactedObj.SetActive(false); // Ensure redactedObj is hidden by default
@@ -53,18 +40,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    // Add inventory object directly to the list
+    // Add inventory object directly to InventoryCollection
     public void AddToInventory(GameObject inventoryObj)
     {
-        if (inventoryObj != null && !collectedObjects.Contains(inventoryObj))
+        if (inventoryObj != null)
         {
-            // Remove the redactedObj if it's the only item in the inventory
-            if (collectedObjects.Count == 0 && redactedObj != null)
+            inventoryCollection.AddObject(inventoryObj);
+            if (redactedObj != null && inventoryCollection.CollectedObjects.Count > 0)
             {
                 redactedObj.SetActive(false);
             }
-
-            collectedObjects.Add(inventoryObj);
         }
     }
 
@@ -88,26 +73,19 @@ public class Inventory : MonoBehaviour
     // Scrolls through inventory items
     public void ScrollInventory(int direction)
     {
-        if (!inventoryOpen) return;
-
-        // If no collected objects, do not scroll
-        if (collectedObjects.Count == 0)
-        {
-            ShowRedactedObj();
-            return;
-        }
+        if (!inventoryOpen || inventoryCollection.CollectedObjects.Count == 0) return;
 
         HideCurrentObjUI();
-        currentIndex = (currentIndex + direction + collectedObjects.Count) % collectedObjects.Count;
+        currentIndex = (currentIndex + direction + inventoryCollection.CollectedObjects.Count) % inventoryCollection.CollectedObjects.Count;
         ShowCurrentObjUI();
     }
 
     // Shows the UI of the currently selected inventory item
     private void ShowCurrentObjUI()
     {
-        if (collectedObjects.Count > 0)
+        if (inventoryCollection.CollectedObjects.Count > 0)
         {
-            GameObject currentObj = collectedObjects[currentIndex];
+            GameObject currentObj = inventoryCollection.CollectedObjects[currentIndex];
             currentObj.SetActive(true); // Activate inventory UI for the current object
         }
         else
@@ -119,9 +97,9 @@ public class Inventory : MonoBehaviour
     // Hides the UI of the currently selected inventory item
     private void HideCurrentObjUI()
     {
-        if (collectedObjects.Count > 0)
+        if (inventoryCollection.CollectedObjects.Count > 0)
         {
-            GameObject currentObj = collectedObjects[currentIndex];
+            GameObject currentObj = inventoryCollection.CollectedObjects[currentIndex];
             currentObj.SetActive(false); // Deactivate inventory UI for the current object
         }
     }
@@ -138,12 +116,11 @@ public class Inventory : MonoBehaviour
     // Hides all inventory item UIs when the inventory is closed
     private void HideAllObjUIs()
     {
-        foreach (var obj in collectedObjects)
+        foreach (var obj in inventoryCollection.CollectedObjects)
         {
             obj.SetActive(false);
         }
 
-        // Also hide the redacted object when closing the inventory
         if (redactedObj != null)
         {
             redactedObj.SetActive(false);

@@ -6,12 +6,11 @@ public class InteractableObj : MonoBehaviour
 {
     [SerializeField] public GameObject objUI;
     [SerializeField] public GameObject pressPrompt;
-    [SerializeField] public GameObject inventoryObj; // Unique ID for the object
+    [SerializeField] public GameObject inventoryObj; // Object to add to InventoryCollection
 
     private bool isPlayerNearby = false;
     private bool isObjOpen = false;
     private SpriteRenderer spriteRenderer;
-    private Inventory playerInventory;
     private PlayerController playerController;
 
     [SerializeField] public Color normalColor;
@@ -19,31 +18,33 @@ public class InteractableObj : MonoBehaviour
 
     void Start()
     {
-        objUI.SetActive(false);
-        inventoryObj.SetActive(false);
-        pressPrompt.SetActive(false);
+        // Ensure UI elements are hidden initially
+        if (objUI != null) objUI.SetActive(false);
+        if (inventoryObj != null) inventoryObj.SetActive(false);
+        if (pressPrompt != null) pressPrompt.SetActive(false);
+
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = normalColor;
+        if (spriteRenderer != null) spriteRenderer.color = normalColor;
 
         playerController = FindObjectOfType<PlayerController>();
-        playerInventory = FindObjectOfType<Inventory>(); // Locate the player's inventory
     }
 
     void Update()
     {
+        // Toggle object interaction when player presses Z
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.Z))
         {
             if (!isObjOpen)
             {
                 SoundManager.PlaySound("open");
                 OpenObj();
-                playerController.enabled = false;
+                if (playerController != null) playerController.enabled = false;
             }
             else
             {
                 SoundManager.PlaySound("close");
                 CloseObj();
-                playerController.enabled = true;
+                if (playerController != null) playerController.enabled = true;
             }
         }
     }
@@ -53,8 +54,8 @@ public class InteractableObj : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = true;
-            spriteRenderer.color = glowColor;
-            pressPrompt.SetActive(true);
+            if (spriteRenderer != null) spriteRenderer.color = glowColor;
+            if (pressPrompt != null) pressPrompt.SetActive(true);
         }
     }
 
@@ -63,27 +64,29 @@ public class InteractableObj : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = false;
-            spriteRenderer.color = normalColor;
-            pressPrompt.SetActive(false);
+            if (spriteRenderer != null) spriteRenderer.color = normalColor;
+            if (pressPrompt != null) pressPrompt.SetActive(false);
         }
     }
 
     private void OpenObj()
     {
-        pressPrompt.SetActive(false);
-        objUI.SetActive(true);
+        if (pressPrompt != null) pressPrompt.SetActive(false);
+        if (objUI != null) objUI.SetActive(true);
+
         isObjOpen = true;
         Time.timeScale = 0f;
 
-        if (playerInventory != null && inventoryObj != null)
+        // Add object to InventoryCollection if it hasn’t been collected already
+        if (InventoryCollection.Instance != null && inventoryObj != null)
         {
-            playerInventory.AddToInventory(inventoryObj);
+            InventoryCollection.Instance.AddObject(inventoryObj);
         }
     }
 
     private void CloseObj()
     {
-        objUI.SetActive(false);
+        if (objUI != null) objUI.SetActive(false);
         isObjOpen = false;
         Time.timeScale = 1f;
     }
