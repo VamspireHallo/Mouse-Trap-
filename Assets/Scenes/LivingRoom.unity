@@ -2450,7 +2450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryIcon: {fileID: 574768450}
-  notificationColor: {r: 1, g: 0.39215687, b: 0.39215687, a: 1}
+  notificationColor: {r: 1, g: 0, b: 0, a: 1}
+  flashInterval: 0.3
 --- !u!1 &609484813
 GameObject:
   m_ObjectHideFlags: 0

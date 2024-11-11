@@ -1477,6 +1477,7 @@ MonoBehaviour:
   objUI: {fileID: 1147390599}
   pressPrompt: {fileID: 627160205}
   inventoryID: SR2
+  inventoryUI: {fileID: 1732509134}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
 --- !u!1 &114356863
@@ -1882,6 +1883,7 @@ MonoBehaviour:
   objUI: {fileID: 1786730999}
   pressPrompt: {fileID: 2006733308}
   inventoryID: LP3
+  inventoryUI: {fileID: 1732509134}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
 --- !u!1 &130758041
@@ -4401,6 +4403,7 @@ MonoBehaviour:
   objUI: {fileID: 1370962920}
   pressPrompt: {fileID: 586634364}
   inventoryID: BN4
+  inventoryUI: {fileID: 1732509134}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
 --- !u!1 &552664087
@@ -6150,7 +6153,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 250, y: -150}
-  m_SizeDelta: {x: 0, y: 14}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752946260
 MonoBehaviour:
@@ -11980,7 +11983,7 @@ GameObject:
   - component: {fileID: 1682213608}
   - component: {fileID: 1682213607}
   - component: {fileID: 1682213606}
-  - component: {fileID: 1682213605}
+  - component: {fileID: 1682213610}
   m_Layer: 5
   m_Name: InventoryObjs
   m_TagString: Untagged
@@ -11988,18 +11991,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1682213605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682213604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 307fa43b52d08764a8b850c48bd16b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1682213606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12092,6 +12083,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1682213610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682213604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc0b9acf1e0ba54a83df4e800ee46e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1720218053
 GameObject:
   m_ObjectHideFlags: 0
@@ -12255,6 +12258,7 @@ GameObject:
   - component: {fileID: 1732509132}
   - component: {fileID: 1732509131}
   - component: {fileID: 1732509130}
+  - component: {fileID: 1732509134}
   m_Layer: 5
   m_Name: InventoryUI
   m_TagString: Untagged
@@ -12271,7 +12275,7 @@ RectTransform:
   m_GameObject: {fileID: 1732509128}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0008, y: 1.0008, z: 1.0008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 752946259}
@@ -12378,6 +12382,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732509128}
   m_CullTransparentMesh: 1
+--- !u!114 &1732509134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732509128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc721dbefed5004aab23a35c4b91d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryIcon: {fileID: 1732509132}
+  notificationColor: {r: 1, g: 0, b: 0, a: 1}
+  flashInterval: 0.3
 --- !u!1 &1744601126
 GameObject:
   m_ObjectHideFlags: 0
@@ -14877,9 +14896,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1182684237}
   - {fileID: 1477691850}
-  - {fileID: 1928458365}
   - {fileID: 678300536}
   - {fileID: 1937844135}
+  - {fileID: 1928458365}
   - {fileID: 566547904}
   - {fileID: 1151344938}
   - {fileID: 220612338}
