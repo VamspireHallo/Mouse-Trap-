@@ -7,10 +7,12 @@ public class InteractableObj : MonoBehaviour
     [SerializeField] public GameObject objUI;
     [SerializeField] public GameObject pressPrompt;
     [SerializeField] public string inventoryID;
+    [SerializeField] private InventoryUI inventoryUI;
     private GameObject inventoryObj; // Object to add to InventoryCollection
 
     private bool isPlayerNearby = false;
     private bool isObjOpen = false;
+    private bool hasNotified = false;
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
 
@@ -88,6 +90,11 @@ public class InteractableObj : MonoBehaviour
         // Add object to InventoryCollection if it hasn’t been collected already
         if (InventoryCollection.Instance != null && inventoryObj != null)
         {
+            if (!hasNotified)
+            {
+                hasNotified = true;
+                inventoryUI?.DisplayNotification();
+            }
             InventoryCollection.Instance.AddObject(inventoryObj);
         }
     }
