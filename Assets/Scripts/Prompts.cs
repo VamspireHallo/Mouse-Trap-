@@ -16,6 +16,7 @@ public class Prompts : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             pressPrompt.gameObject.SetActive(true);
+            Debug.Log("Player entered trigger area, pressPrompt is now active.");
         }
     }
 
@@ -24,6 +25,7 @@ public class Prompts : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             pressPrompt.gameObject.SetActive(false);
+            Debug.Log("Player exited trigger area, pressPrompt is now inactive.");
         }
     }
 }
