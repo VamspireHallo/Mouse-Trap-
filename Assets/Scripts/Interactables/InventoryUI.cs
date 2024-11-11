@@ -10,7 +10,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private float flashInterval = 0.2f;            // Interval for flashing
     private Color originalColor;                                    // Store the original color of the icon
     private bool notificationActive = false;                        // Track if the notification is active
-    private float notificationDuration = 10f;  
+    private float notificationDuration = 5f;  
     
     private void Start()
     {
