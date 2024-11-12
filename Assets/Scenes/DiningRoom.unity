@@ -1803,7 +1803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2655780001748623857, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_Name
-      value: FadeStart
+      value: Fade
       objectReference: {fileID: 0}
     - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1860,7 +1860,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
 --- !u!95 &139246597 stripped
 Animator:
-  m_CorrespondingSourceObject: {fileID: 5227476945303312187, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1365019459268368222, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
   m_PrefabInstance: {fileID: 139246596}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &144992072
@@ -11095,7 +11095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Kitchen
   transition: {fileID: 139246597}
-  transitionTime: 2
+  transitionTime: 1
 --- !u!1 &2063281898
 GameObject:
   m_ObjectHideFlags: 0

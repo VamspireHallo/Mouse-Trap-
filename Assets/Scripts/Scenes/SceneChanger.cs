@@ -7,7 +7,7 @@ public class SceneChanger : MonoBehaviour
 {
     [SerializeField] private string sceneName;
     public Animator transition;
-    public float transitionTime = 2f;
+    public float transitionTime = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

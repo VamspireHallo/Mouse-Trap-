@@ -3155,7 +3155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: DiningRoom
   transition: {fileID: 1438944446}
-  transitionTime: 2
+  transitionTime: 1
 --- !u!1 &729617982
 GameObject:
   m_ObjectHideFlags: 0
@@ -7114,7 +7114,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 438483660041234772, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_text
-      value: The Dining Room
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 453637444517226245, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7148,6 +7148,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1365019459268368222, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 445d9b878f985b544837a7b79cea2a4b, type: 2}
     - target: {fileID: 2591271829966666932, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -7163,6 +7167,10 @@ PrefabInstance:
     - target: {fileID: 2655780001748623857, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_Name
       value: FadeStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655780001748623857, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7204,6 +7212,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4652561541437625374, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6207272818474512377, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -7224,15 +7236,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2560
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1440
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1494212815351685688, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+    - {fileID: 759719401219620062, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
 --- !u!95 &1438944446 stripped
 Animator:
-  m_CorrespondingSourceObject: {fileID: 4521078655663661391, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1365019459268368222, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
   m_PrefabInstance: {fileID: 1438944445}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1449230937

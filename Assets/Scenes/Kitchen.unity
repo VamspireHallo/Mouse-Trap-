@@ -1409,6 +1409,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+--- !u!95 &203594122 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1365019459268368222, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+  m_PrefabInstance: {fileID: 203594121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &212334608
 GameObject:
   m_ObjectHideFlags: 0
@@ -11378,8 +11383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: TheEnd
-  transition: {fileID: 0}
-  transitionTime: 2
+  transition: {fileID: 203594122}
+  transitionTime: 1
 --- !u!1 &1374507264
 GameObject:
   m_ObjectHideFlags: 0
