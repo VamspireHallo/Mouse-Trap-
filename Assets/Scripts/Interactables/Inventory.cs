@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         inventoryCollection = InventoryCollection.Instance;
 
-        Canvas canvas = FindObjectOfType<Canvas>();
+        Canvas canvas = GameObject.Find("InventoryObjs")?.GetComponent<Canvas>();
         if (canvas != null)
         {
             // Search for the object by name in the Canvas' hierarchy

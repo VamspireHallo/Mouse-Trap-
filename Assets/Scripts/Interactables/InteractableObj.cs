@@ -25,7 +25,7 @@ public class InteractableObj : MonoBehaviour
         if (objUI != null) objUI.SetActive(false);
         if (pressPrompt != null) pressPrompt.SetActive(false);
 
-        Canvas canvas = FindObjectOfType<Canvas>();
+        Canvas canvas = GameObject.Find("InventoryObjs")?.GetComponent<Canvas>();
         if (canvas != null)
         {
             // Search for the object by name in the Canvas' hierarchy
