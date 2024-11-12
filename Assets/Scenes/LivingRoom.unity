@@ -432,6 +432,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74621624}
   m_CullTransparentMesh: 1
+--- !u!95 &139017539 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5609525980070859, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+  m_PrefabInstance: {fileID: 1438944445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &192826831
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,7 +3159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: DiningRoom
-  transition: {fileID: 1438944446}
+  transition: {fileID: 139017539}
   transitionTime: 1
 --- !u!1 &729617982
 GameObject:
@@ -7116,42 +7121,18 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 453637444517226245, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 803974301192932059, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_Name
+      value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 803974301192932059, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 453637444517226245, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 453637444517226245, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchorMin.x
+    - target: {fileID: 2420105743905739514, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 453637444517226245, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453637444517226245, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453637444517226245, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453637444517226245, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 453637444517226245, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1365019459268368222, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 22100000, guid: 445d9b878f985b544837a7b79cea2a4b, type: 2}
     - target: {fileID: 2591271829966666932, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -7166,12 +7147,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2655780001748623857, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_Name
-      value: FadeStart
+      value: Fade
       objectReference: {fileID: 0}
     - target: {fileID: 2655780001748623857, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3296843855339754400, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 36dde484b264d9844aaad64250cfe0b8, type: 2}
     - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7220,10 +7205,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 212095213}
-    - target: {fileID: 6207272818474512377, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 6467433427279693581, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -7236,46 +7217,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 2560
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1440
-      objectReference: {fileID: 0}
-    - target: {fileID: 7201747737889168719, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_AnchoredPosition.x
+    - target: {fileID: 9002174832037157968, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1494212815351685688, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
     - {fileID: 759719401219620062, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+    - {fileID: 6291065463623129256, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
---- !u!95 &1438944446 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1365019459268368222, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-  m_PrefabInstance: {fileID: 1438944445}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1449230937
 GameObject:
   m_ObjectHideFlags: 0
