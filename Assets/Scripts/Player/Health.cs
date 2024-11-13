@@ -41,6 +41,17 @@ public class Health : MonoBehaviour
         animManager.SetTrigger("isHurt");
     }
 
+    public void RestoreHealth()
+    {
+        currentHealth = startingHealth;
+        Debug.Log("Health restored to maximum!");
+    }
+
+    public float GetStartingHealth()
+    {
+        return startingHealth;
+    }
+
     // Reload Function for resetting scene
     void Update()
     {
