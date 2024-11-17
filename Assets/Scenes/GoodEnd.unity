@@ -2445,6 +2445,7 @@ GameObject:
   - component: {fileID: 496372492}
   - component: {fileID: 496372494}
   - component: {fileID: 496372495}
+  - component: {fileID: 496372496}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -2584,6 +2585,22 @@ MonoBehaviour:
   - Goodbye
   wordSpeed: 0.05
   pressPrompt: {fileID: 584482930}
+--- !u!114 &496372496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496372491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4422cf1be7020242869bc0579e89173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2141904192}
+  maxDistance: 5
+  objRenderer: {fileID: 496372492}
+  minAlpha: 0
 --- !u!1 &557757906
 GameObject:
   m_ObjectHideFlags: 0

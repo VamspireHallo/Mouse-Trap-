@@ -21,6 +21,7 @@ public class CatDialogue : MonoBehaviour
         {
             pressPrompt.SetActive(false); // Hide the prompt initially
         }
+        resetPanel();
     }
 
     void Update()
