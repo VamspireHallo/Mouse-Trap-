@@ -7,7 +7,7 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private Image inventoryIcon;                   // Main inventory icon
     [SerializeField] private Color notificationColor = Color.red;   // Color for notification
-    [SerializeField] private float flashInterval = 0.2f;            // Interval for flashing
+    [SerializeField] private float flashInterval = 0.3f;            // Interval for flashing
     private Color originalColor;                                    // Store the original color of the icon
     private bool notificationActive = false;                        // Track if the notification is active
     private float notificationDuration = 5f;  
