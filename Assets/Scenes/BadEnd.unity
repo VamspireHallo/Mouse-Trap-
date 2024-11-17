@@ -5586,6 +5586,7 @@ GameObject:
   - component: {fileID: 1154669445}
   - component: {fileID: 1154669449}
   - component: {fileID: 1154669450}
+  - component: {fileID: 1154669451}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -5623,7 +5624,7 @@ MonoBehaviour:
   radius: 1
   height: 2
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -5645,7 +5646,7 @@ MonoBehaviour:
   slowdownDistance: 0.6
   pickNextWaypointDist: 1.2
   endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
+  alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
@@ -5725,9 +5726,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.10747743}
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 0.96495485
 --- !u!50 &1154669450
 Rigidbody2D:
   serializedVersion: 4
@@ -5755,6 +5756,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1154669451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154669444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adad4122422824a47aff870b49ec6217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1740759500}
+  speed: 3
+  jumpForce: 5
+  groundCheckDistance: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstacleDetectionDistance: 1
 --- !u!1 &1190353000
 GameObject:
   m_ObjectHideFlags: 0
