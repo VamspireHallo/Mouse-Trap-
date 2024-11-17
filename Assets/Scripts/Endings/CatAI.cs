@@ -5,80 +5,84 @@ using Pathfinding;
 
 public class CatAI : MonoBehaviour
 {
-    public Transform target; // Target to follow
-    public float speed = 3f; // Movement speed
-    public float jumpForce = 5f; // Jump force
-    public float groundCheckDistance = 0.1f; // Distance to check for ground
-    public LayerMask groundLayer; // Layer mask for the ground
-    public LayerMask obstacleLayer; // Layer mask for obstacles
-    public float obstacleDetectionDistance = 1f; // Distance to detect obstacles
+    public Transform target;
+
+    public float speed = 400f;
+    public float nextWaypointDistance = 3f;
+
+    public Transform CatGFX;
+
+    private Path path;
+    private int currentWaypoint = 0;
+    private bool reachedEndOfPath = false;
 
     private Seeker seeker;
     private Rigidbody2D rb;
-    private Path path;
-    private int currentWaypoint = 0;
-    private bool isGrounded;
-    private bool isJumping;
 
+
+    // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
 
     void UpdatePath()
     {
-        if (seeker.IsDone() && target != null)
+        if(seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
-        }
+        }  
     }
 
     void OnPathComplete(Path p)
     {
-        if (!p.error)
+        if(!p.error)
         {
             path = p;
             currentWaypoint = 0;
         }
     }
 
+    // Update is called once per frame
     void FixedUpdate()
     {
-        if (path == null) return;
-
-        // Check if we're grounded
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-
-        // Move along the path
-        if (currentWaypoint < path.vectorPath.Count)
+        if (path == null)
         {
-            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            Vector2 velocity = new Vector2(direction.x * speed, rb.velocity.y);
-
-            // Check for obstacles
-            bool obstacleDetected = Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(velocity.x), obstacleDetectionDistance, obstacleLayer);
-
-            if (obstacleDetected && isGrounded && !isJumping)
-            {
-                // Jump to avoid the obstacle
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                isJumping = true;
-            }
-            else if (isGrounded)
-            {
-                // Move normally
-                rb.velocity = velocity;
-                isJumping = false;
-            }
-
-            // Update waypoint if close enough
-            float distanceToWaypoint = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-            if (distanceToWaypoint < 0.5f)
-            {
-                currentWaypoint++;
-            }
+            return;
         }
+        
+        if(currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            reachedEndOfPath = false;
+        }
+
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 force = direction * speed * Time.deltaTime;
+
+        rb.AddForce(force);
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+
+        if (distance < nextWaypointDistance)
+        {
+            currentWaypoint++;
+        }
+
+        if(force.x >= 0.01f)
+        {
+            CatGFX.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (force.x <= -0.01f)
+        {
+            CatGFX.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
     }
 }
