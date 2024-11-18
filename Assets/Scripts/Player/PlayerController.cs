@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class PlayerController : MonoBehaviour
     public Animator animManager;
     public Rigidbody2D rb;
     private static AudioSource audioSrc;
-    private Health health;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +34,9 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(motion * speed * Time.deltaTime);
 
-        if (transform.position.y < -100f && health != null)
+        if (transform.position.y < -100f)
         {
-            health.Die();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
         if(grounded)
