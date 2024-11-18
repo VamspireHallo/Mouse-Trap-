@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadMenu() 
     {
+        InventoryCollection.Instance.ResetInventory();
         SceneManager.LoadScene("MainMenu");
     }
 }

@@ -33,4 +33,9 @@ public class InventoryCollection : MonoBehaviour
             CollectedObjects.Remove(obj);
         }
     }
+
+    public void ResetInventory()
+    {
+        CollectedObjects.Clear();
+    }
 }

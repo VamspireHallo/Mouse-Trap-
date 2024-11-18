@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Animator animManager;
     public Rigidbody2D rb;
     private static AudioSource audioSrc;
+    private Health health;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,11 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(motion * speed * Time.deltaTime);
 
+        if (transform.position.y < -100f && health != null)
+        {
+            health.Die();
+        }
+        
         if(grounded)
         {
             //animManager.SetBool("isJumping", false);
