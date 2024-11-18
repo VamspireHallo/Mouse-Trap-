@@ -70,8 +70,6 @@ public class HealthPickUp : MonoBehaviour
             finalColor.a = 0;
             spriteRenderer.color = finalColor;
         }
-
-        // Destroy the game object
         Destroy(gameObject);
     }
 }
