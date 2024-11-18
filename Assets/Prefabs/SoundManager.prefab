@@ -151,5 +151,5 @@ MonoBehaviour:
   InvClose: {fileID: 8300000, guid: 19b1862a4f3b7b44c90a4b9022e95fa6, type: 3}
   PageTurn: {fileID: 8300000, guid: 59e1a66d1f4802c4ba76ad6254f27c44, type: 3}
   HealthPickUp: {fileID: 8300000, guid: fbb33fa7d5f65f84fae2014f691a7340, type: 3}
-  TransitionOpen: {fileID: 0}
-  TransitionClose: {fileID: 0}
+  TransitionOpen: {fileID: 8300000, guid: f094c66d848032a4f8426fda993f445f, type: 3}
+  TransitionClose: {fileID: 8300000, guid: 7f284b41dd3c63040a13044f6ea6f04f, type: 3}

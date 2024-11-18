@@ -14,8 +14,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip InvClose;
     public AudioClip PageTurn;
     public AudioClip HealthPickUp;
-    public AudioClip TransitionOpen;
     public AudioClip TransitionClose;
+    public AudioClip TransitionOpen;
 
     private static AudioSource audioSrc;
     private static SoundManager instance; // Reference to access non-static variables
