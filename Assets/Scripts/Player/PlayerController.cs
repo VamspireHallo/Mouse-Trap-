@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
+
         if(grounded)
         {
             //animManager.SetBool("isJumping", false);
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             animManager.SetBool("isMoving", isRunning);
         }
 
-        if(isRunning)
+        if(isRunning && grounded)
         {
             if (!audioSrc.isPlaying)
             {

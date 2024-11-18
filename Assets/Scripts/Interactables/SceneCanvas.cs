@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scene1Canvas : MonoBehaviour
+public class SceneCanvas : MonoBehaviour
 {
-    private static Scene1Canvas instance;
+    private static SceneCanvas instance;
 
     private void Awake()
     {
