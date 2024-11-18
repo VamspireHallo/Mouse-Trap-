@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthPickUp : MonoBehaviour
@@ -44,12 +43,35 @@ public class HealthPickUp : MonoBehaviour
         }
 
         collider.enabled = false;
-        StartCoroutine(DestroyAfterDelay(5f));
+        StartCoroutine(FadeOutAndDestroy(5f));
     }
 
-    private IEnumerator DestroyAfterDelay(float delay)
+    private IEnumerator FadeOutAndDestroy(float duration)
     {
-        yield return new WaitForSeconds(delay);
+        float fadeTime = 1f; // Duration of the fade effect
+        float fadeRate = Time.deltaTime / fadeTime;
+
+        // Reduce the alpha value over time
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            if (spriteRenderer != null)
+            {
+                Color currentColor = spriteRenderer.color;
+                currentColor.a = Mathf.Clamp01(currentColor.a - fadeRate);
+                spriteRenderer.color = currentColor;
+            }
+            yield return null;
+        }
+
+        // Ensure the object is fully transparent
+        if (spriteRenderer != null)
+        {
+            Color finalColor = spriteRenderer.color;
+            finalColor.a = 0;
+            spriteRenderer.color = finalColor;
+        }
+
+        // Destroy the game object
         Destroy(gameObject);
     }
 }
