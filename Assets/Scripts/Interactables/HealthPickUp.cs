@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class HealthPickUp : MonoBehaviour
 {
-    // Amount of health to restore, set to starting health in the Health script
-    public float healthRestoreAmount;
+    public float healthRestoreAmount; // Amount of health to restore
+    public Sprite altSprite;         // Alternate sprite to display after pickup
+    private SpriteRenderer spriteRenderer;
+    private Collider2D collider;
+
+    private void Start()
+    {
+        // Cache the SpriteRenderer and Collider2D components
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        collider = GetComponent<Collider2D>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,14 +25,31 @@ public class HealthPickUp : MonoBehaviour
             // Only restore health if the player's current health is below maximum
             if (playerHealth.currentHealth < playerHealth.GetStartingHealth())
             {
-                // Restore player's health to maximum & destroy object
                 playerHealth.RestoreHealth();
-                Destroy(gameObject);
+                ReplaceWithAltSprite();
             }
             else
             {
                 Debug.Log("Player health is already at maximum. Health pickup ignored.");
             }
         }
+    }
+
+    private void ReplaceWithAltSprite()
+    {
+        // Change to the alternate sprite
+        if (altSprite != null)
+        {
+            spriteRenderer.sprite = altSprite;
+        }
+
+        collider.enabled = false;
+        StartCoroutine(DestroyAfterDelay(5f));
+    }
+
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 }
