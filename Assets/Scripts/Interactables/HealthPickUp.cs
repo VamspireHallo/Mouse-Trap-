@@ -48,7 +48,7 @@ public class HealthPickUp : MonoBehaviour
 
     private IEnumerator FadeOutAndDestroy(float duration)
     {
-        float fadeTime = 1f; // Duration of the fade effect
+        float fadeTime = 10f; // Duration of the fade effect
         float fadeRate = Time.deltaTime / fadeTime;
 
         // Reduce the alpha value over time
