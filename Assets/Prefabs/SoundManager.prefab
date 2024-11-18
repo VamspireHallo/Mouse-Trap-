@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3328393083421893067}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2070792, y: 3.3312192, z: -0.9751619}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,3 +151,5 @@ MonoBehaviour:
   InvClose: {fileID: 8300000, guid: 19b1862a4f3b7b44c90a4b9022e95fa6, type: 3}
   PageTurn: {fileID: 8300000, guid: 59e1a66d1f4802c4ba76ad6254f27c44, type: 3}
   HealthPickUp: {fileID: 8300000, guid: fbb33fa7d5f65f84fae2014f691a7340, type: 3}
+  TransitionOpen: {fileID: 0}
+  TransitionClose: {fileID: 0}
