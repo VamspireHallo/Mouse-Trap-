@@ -10,6 +10,12 @@ public class SoundManager : MonoBehaviour
     public AudioClip GlueHurt;
     public AudioClip ObjOpen;
     public AudioClip ObjClose;
+    public AudioClip InvOpen;
+    public AudioClip InvClose;
+    public AudioClip PageTurn;
+    public AudioClip HealthPickUp;
+    public AudioClip TransitionOpen;
+    public AudioClip TransitionClose;
 
     private static AudioSource audioSrc;
     private static SoundManager instance; // Reference to access non-static variables
@@ -44,11 +50,30 @@ public class SoundManager : MonoBehaviour
             case "gluetrap":
                 audioSrc.PlayOneShot(instance.GlueHurt);
                 break;
-            case "open":
+            case "openobj":
                 audioSrc.PlayOneShot(instance.ObjOpen);
                 break;
-            case "close":
+            case "closeobj":
                 audioSrc.PlayOneShot(instance.ObjClose);
+                break;
+            case "openinv":
+                audioSrc.PlayOneShot(instance.InvOpen);
+                break;
+            case "closeinv":
+                audioSrc.PlayOneShot(instance.InvClose);
+                break;
+            case "pageturn":
+                audioSrc.PlayOneShot(instance.PageTurn);
+                break;
+            case "pickup":
+                audioSrc.PlayOneShot(instance.HealthPickUp);
+                break;
+
+            case "closescene":
+                audioSrc.PlayOneShot(instance.TransitionClose);
+                break;
+            case "openscene":
+                audioSrc.PlayOneShot(instance.TransitionOpen);
                 break;
             default:
                 Debug.LogWarning("Sound clip not found for: " + clip);

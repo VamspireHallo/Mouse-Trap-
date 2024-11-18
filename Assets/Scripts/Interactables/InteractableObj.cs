@@ -46,13 +46,13 @@ public class InteractableObj : MonoBehaviour
         {
             if (!isObjOpen)
             {
-                SoundManager.PlaySound("open");
+                SoundManager.PlaySound("openobj");
                 OpenObj();
                 if (playerController != null) playerController.enabled = false;
             }
             else
             {
-                SoundManager.PlaySound("close");
+                SoundManager.PlaySound("closeobj");
                 CloseObj();
                 if (playerController != null) playerController.enabled = true;
             }

@@ -39,10 +39,12 @@ public class Inventory : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                SoundManager.PlaySound("pageturn");
                 ScrollInventory(1);
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                SoundManager.PlaySound("pageturn");
                 ScrollInventory(-1);
             }
         }
@@ -77,12 +79,14 @@ public class Inventory : MonoBehaviour
 
         if (inventoryOpen)
         {
+            SoundManager.PlaySound("openinv");
             ShowCurrentObjUI();
             playerController.enabled = false;
             Time.timeScale = 0f;
         }
         else
         {
+            SoundManager.PlaySound("closeinv");
             HideAllObjUIs();
             playerController.enabled = true;
             Time.timeScale = 1f;

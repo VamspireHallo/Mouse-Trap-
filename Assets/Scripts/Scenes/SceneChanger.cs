@@ -20,6 +20,7 @@ public class SceneChanger : MonoBehaviour
 
     IEnumerator LoadLevel()
     {
+        SoundManager.PlaySound("closescene");
         transition.SetTrigger("isStart");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneName);

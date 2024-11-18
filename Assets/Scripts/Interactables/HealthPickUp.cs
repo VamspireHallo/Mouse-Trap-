@@ -24,6 +24,7 @@ public class HealthPickUp : MonoBehaviour
             // Only restore health if the player's current health is below maximum
             if (playerHealth.currentHealth < playerHealth.GetStartingHealth())
             {
+                SoundManager.PlaySound("pickup");
                 playerHealth.RestoreHealth();
                 ReplaceWithAltSprite();
             }
