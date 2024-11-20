@@ -8,8 +8,6 @@ public class SoundManager : MonoBehaviour
     public AudioClip CandleHurt;
     public AudioClip MTHurt;
     public AudioClip GlueHurt;
-    public AudioClip ObjOpen;
-    public AudioClip ObjClose;
     public AudioClip InvOpen;
     public AudioClip InvClose;
     public AudioClip PageTurn;
@@ -50,12 +48,6 @@ public class SoundManager : MonoBehaviour
             case "gluetrap":
                 audioSrc.PlayOneShot(instance.GlueHurt);
                 break;
-            case "openobj":
-                audioSrc.PlayOneShot(instance.ObjOpen);
-                break;
-            case "closeobj":
-                audioSrc.PlayOneShot(instance.ObjClose);
-                break;
             case "openinv":
                 audioSrc.PlayOneShot(instance.InvOpen);
                 break;
@@ -68,7 +60,6 @@ public class SoundManager : MonoBehaviour
             case "pickup":
                 audioSrc.PlayOneShot(instance.HealthPickUp);
                 break;
-
             case "closescene":
                 audioSrc.PlayOneShot(instance.TransitionClose);
                 break;

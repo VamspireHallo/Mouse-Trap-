@@ -10,6 +10,10 @@ public class InteractableObj : MonoBehaviour
     [SerializeField] private InventoryUI inventoryUI;
     private GameObject inventoryObj; // Object to add to InventoryCollection
 
+    [SerializeField] private AudioSource audioSource; // Individual audio source
+    [SerializeField] private AudioClip openSound;     // Sound for opening the object
+    [SerializeField] private AudioClip closeSound;    // Sound for closing the object
+
     private bool isPlayerNearby = false;
     private bool isObjOpen = false;
     private bool hasNotified = false;
@@ -46,13 +50,21 @@ public class InteractableObj : MonoBehaviour
         {
             if (!isObjOpen)
             {
-                SoundManager.PlaySound("openobj");
+                if (openSound != null && audioSource != null)
+                {
+                    audioSource.clip = openSound;
+                    audioSource.Play();
+                }
                 OpenObj();
                 if (playerController != null) playerController.enabled = false;
             }
             else
             {
-                SoundManager.PlaySound("closeobj");
+                if (closeSound != null && audioSource != null)
+                {
+                    audioSource.clip = closeSound;
+                    audioSource.Play();
+                }
                 CloseObj();
                 if (playerController != null) playerController.enabled = true;
             }
