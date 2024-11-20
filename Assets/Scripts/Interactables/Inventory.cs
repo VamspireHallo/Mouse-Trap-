@@ -39,12 +39,18 @@ public class Inventory : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                SoundManager.PlaySound("pageturn");
+                if (inventoryCollection.CollectedObjects.Count > 1)
+                {
+                    SoundManager.PlaySound("pageturn");
+                }
                 ScrollInventory(1);
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                SoundManager.PlaySound("pageturn");
+                if (inventoryCollection.CollectedObjects.Count > 1)
+                {
+                    SoundManager.PlaySound("pageturn");
+                }
                 ScrollInventory(-1);
             }
         }

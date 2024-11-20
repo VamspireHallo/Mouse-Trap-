@@ -13,12 +13,14 @@ public class CatDialogue : MonoBehaviour
     [SerializeField] private string[] dialogueLines; // Dialogue lines for the NPC
     [SerializeField] private Animator endScreenAnimator;
     [SerializeField] private Animator catAnimator;
+    private AudioSource catAudioSource;
     private int index;
 
     public float wordSpeed;
     private bool isPlayerNearby = false;
     [SerializeField] private GameObject pressPrompt;    // UI prompt to show when near NPC
     private PlayerController playerController;
+    private bool hasDialogueCompleted = false;
 
     void Start()
     {
@@ -28,12 +30,13 @@ public class CatDialogue : MonoBehaviour
         }
         resetPanel();
         playerController = FindObjectOfType<PlayerController>();
+        catAudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         // Check for interaction input
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.Z)) 
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.Z) && !hasDialogueCompleted) 
         {
             if (dialoguePanel.activeInHierarchy)
             {
@@ -58,6 +61,7 @@ public class CatDialogue : MonoBehaviour
                 {
                     catAnimator.SetTrigger("LookDown");
                 }
+                catAudioSource.Play();
                 if (playerController != null) playerController.enabled = false;
                 StartCoroutine(Typing());
             }
@@ -98,7 +102,7 @@ public class CatDialogue : MonoBehaviour
     private void EndDialogueSequence()
     {
         resetPanel();
-
+        hasDialogueCompleted = true;
         if (endScreenAnimator != null)
         {
             endScreenAnimator.SetTrigger("PlayEnding"); // Trigger End Credits animation
@@ -115,7 +119,7 @@ public class CatDialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !hasDialogueCompleted)
         {
             isPlayerNearby = true;
             if (pressPrompt != null) pressPrompt.SetActive(true); // Show interaction prompt
