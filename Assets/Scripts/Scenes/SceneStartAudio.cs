@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class SceneStartAudio : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private AudioSource audioSrc; // Local AudioSource for this GameObject
+    [SerializeField] private AudioClip openSceneClip; // Audio clip to play
+
     void Start()
     {
-        SoundManager.PlaySound("openscene");
-    }
+        audioSrc = GetComponent<AudioSource>();
+        if (audioSrc == null)
+        {
+            audioSrc = gameObject.AddComponent<AudioSource>();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Play the "openscene" clip if assigned
+        if (openSceneClip != null)
+        {
+            audioSrc.PlayOneShot(openSceneClip);
+        }
+        else
+        {
+            Debug.LogError("No audio clip assigned to openSceneClip in SceneStartAudio.");
+        }
     }
 }
