@@ -12,16 +12,13 @@ public class CatDialogue : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private string[] dialogueLines; // Dialogue lines for the NPC
     [SerializeField] private Animator endScreenAnimator;
+    [SerializeField] private Animator catAnimator;
     private int index;
 
     public float wordSpeed;
     private bool isPlayerNearby = false;
     [SerializeField] private GameObject pressPrompt;    // UI prompt to show when near NPC
     private PlayerController playerController;
-
-    [SerializeField] private SpriteRenderer catSpriteRenderer; // Reference to the SpriteRenderer for the cat
-    [SerializeField] private Sprite defaultSprite;            
-    [SerializeField] private Sprite talkingSprite; 
 
     void Start()
     {
@@ -31,11 +28,6 @@ public class CatDialogue : MonoBehaviour
         }
         resetPanel();
         playerController = FindObjectOfType<PlayerController>();
-
-        if (catSpriteRenderer != null && defaultSprite != null)
-        {
-            catSpriteRenderer.sprite = defaultSprite; // Set the default sprite at start
-        }
     }
 
     void Update()
@@ -61,12 +53,10 @@ public class CatDialogue : MonoBehaviour
             {
                 PlayerUI.SetActive(false);
                 dialoguePanel.SetActive(true);
-
-                if (catSpriteRenderer != null && talkingSprite != null)
+                if (catAnimator != null)
                 {
-                    catSpriteRenderer.sprite = talkingSprite;
+                    catAnimator.SetTrigger("LookDown");
                 }
-
                 if (playerController != null) playerController.enabled = false;
                 StartCoroutine(Typing());
             }
@@ -111,7 +101,7 @@ public class CatDialogue : MonoBehaviour
 
         if (endScreenAnimator != null)
         {
-            endScreenAnimator.SetTrigger("PlayEnding"); // Trigger "TheEndScreen" animation
+            endScreenAnimator.SetTrigger("PlayEnding"); // Trigger End Credits animation
         }
 
         StartCoroutine(ExitToEndMenu()); // Start transition to the EndMenu scene

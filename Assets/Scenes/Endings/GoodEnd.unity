@@ -3037,8 +3037,9 @@ GameObject:
   - component: {fileID: 496372494}
   - component: {fileID: 496372495}
   - component: {fileID: 496372496}
+  - component: {fileID: 496372497}
   m_Layer: 0
-  m_Name: Cat
+  m_Name: GhostCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3085,7 +3086,7 @@ SpriteRenderer:
   m_SortingLayerID: 546670793
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e714332d2d8914d45a20d8fc3411d80d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 464b1f4be08228647a86f8b1221d89dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3105,7 +3106,7 @@ Transform:
   m_GameObject: {fileID: 496372491}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -2.3, z: 0}
+  m_LocalPosition: {x: -4, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3147,7 +3148,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 2.5}
+    oldSize: {x: 4, y: 3}
     newSize: {x: 3, y: 2.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3172,15 +3173,19 @@ MonoBehaviour:
   PlayerUI: {fileID: 1108628833}
   dialogueText: {fileID: 965600055}
   dialogueLines:
-  - Hello
-  - You are a mouse
-  - Goodbye
+  - Hello, my little friend.
+  - "You\u2019ve been on a long journey."
+  - "And now you\u2019re here."
+  - Talking to me.
+  - "It's been so long since I\u2019ve been able to do that\u2026"
+  - I see you found the cheese.
+  - "Don\u2019t worry, I won\u2019t chase you."
+  - No, I just wanted to say goodbye...
+  - Goodbye and thank you, little mouse.
   endScreenAnimator: {fileID: 481577597}
+  catAnimator: {fileID: 496372497}
   wordSpeed: 0.05
   pressPrompt: {fileID: 584482930}
-  catSpriteRenderer: {fileID: 496372492}
-  defaultSprite: {fileID: 21300000, guid: e714332d2d8914d45a20d8fc3411d80d, type: 3}
-  talkingSprite: {fileID: 21300000, guid: fa2451167ea13d94f9aecde8a6229157, type: 3}
 --- !u!114 &496372496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3197,6 +3202,27 @@ MonoBehaviour:
   maxDistance: 5
   objRenderer: {fileID: 496372492}
   minAlpha: 0
+--- !u!95 &496372497
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496372491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea6747f01fe8e41428cedc8e1aeec40a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &498341251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3876,7 +3902,7 @@ Transform:
   m_GameObject: {fileID: 584482930}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.8, y: -0.5, z: 1}
+  m_LocalPosition: {x: -4, y: -0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5879,10 +5905,10 @@ RectTransform:
   - {fileID: 965600057}
   m_Father: {fileID: 298145970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.19517188, y: 0.711}
-  m_AnchorMax: {x: 0.80100006, y: 0.94813895}
-  m_AnchoredPosition: {x: 1.5, y: -1.5}
-  m_SizeDelta: {x: -3, y: 3}
+  m_AnchorMin: {x: 0.06565626, y: 0.703}
+  m_AnchorMax: {x: 0.94564074, y: 0.9480001}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_SizeDelta: {x: 0.00012207, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1039106998
 MonoBehaviour:
