@@ -5977,7 +5977,7 @@ Transform:
   m_GameObject: {fileID: 693869140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1, y: 5.93, z: -2}
+  m_LocalPosition: {x: -22.7, y: 4.75, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7957,8 +7957,8 @@ MonoBehaviour:
   inventoryID: HD7
   inventoryUI: {fileID: 2100340172}
   audioSource: {fileID: 896632730}
-  openSound: {fileID: 8300000, guid: 3bf2fabd6c70fa34eb04eaccf4bc0fb8, type: 3}
-  closeSound: {fileID: 8300000, guid: a87e04062c428e34e93bcdc7732f3bf6, type: 3}
+  openSound: {fileID: 8300000, guid: 3bf36ad08172f6c40a7478318aacc28b, type: 3}
+  closeSound: {fileID: 8300000, guid: 1d649f4f635242b46a6ff5fe8a99a820, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
 --- !u!61 &896632729
@@ -8018,7 +8018,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15891,7 +15891,7 @@ Transform:
   m_GameObject: {fileID: 1828248055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000002861023, y: -1.9299998, z: -10}
+  m_LocalPosition: {x: 4.019951, y: -0.75, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16134,7 +16134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0.5}
   m_AnchorMax: {x: 0.7, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 150}
   m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874125251
@@ -16749,7 +16749,7 @@ Transform:
   m_GameObject: {fileID: 1919062746}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1, y: 5.93, z: -12}
+  m_LocalPosition: {x: -22.7, y: 4.75, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
