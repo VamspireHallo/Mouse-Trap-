@@ -32,7 +32,7 @@ public class MemoriesTransparency : MonoBehaviour
         float distance = Vector3.Distance(player.position, transform.position);
 
         // Calculate alpha based on the distance
-        float alpha = Mathf.Clamp(1 - (distance / maxDistance), minAlpha, 1.0f);
+        float alpha = Mathf.Clamp(1 - ((distance * 2) / maxDistance), minAlpha, 1.0f);
 
         // Apply the calculated alpha to the obj's material
         SetAlpha(alpha);

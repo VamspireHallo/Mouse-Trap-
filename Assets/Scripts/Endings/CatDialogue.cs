@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class CatDialogue : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private GameObject PlayerUI;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private string[] dialogueLines; // Dialogue lines for the NPC
     [SerializeField] private Animator endScreenAnimator;
@@ -16,6 +17,11 @@ public class CatDialogue : MonoBehaviour
     public float wordSpeed;
     private bool isPlayerNearby = false;
     [SerializeField] private GameObject pressPrompt;    // UI prompt to show when near NPC
+    private PlayerController playerController;
+
+    [SerializeField] private SpriteRenderer catSpriteRenderer; // Reference to the SpriteRenderer for the cat
+    [SerializeField] private Sprite defaultSprite;            
+    [SerializeField] private Sprite talkingSprite; 
 
     void Start()
     {
@@ -24,6 +30,12 @@ public class CatDialogue : MonoBehaviour
             pressPrompt.SetActive(false); // Hide the prompt initially
         }
         resetPanel();
+        playerController = FindObjectOfType<PlayerController>();
+
+        if (catSpriteRenderer != null && defaultSprite != null)
+        {
+            catSpriteRenderer.sprite = defaultSprite; // Set the default sprite at start
+        }
     }
 
     void Update()
@@ -47,7 +59,15 @@ public class CatDialogue : MonoBehaviour
             }
             else
             {
+                PlayerUI.SetActive(false);
                 dialoguePanel.SetActive(true);
+
+                if (catSpriteRenderer != null && talkingSprite != null)
+                {
+                    catSpriteRenderer.sprite = talkingSprite;
+                }
+
+                if (playerController != null) playerController.enabled = false;
                 StartCoroutine(Typing());
             }
         }
@@ -59,6 +79,7 @@ public class CatDialogue : MonoBehaviour
         index = 0;
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
+        PlayerUI.SetActive(true);
     }
 
     IEnumerator Typing()

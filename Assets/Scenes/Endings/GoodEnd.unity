@@ -3085,12 +3085,12 @@ SpriteRenderer:
   m_SortingLayerID: 546670793
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ac669efc27ec0bc45a84673d728f2e7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e714332d2d8914d45a20d8fc3411d80d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2.057143}
+  m_Size: {x: 3, y: 2.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3105,7 +3105,7 @@ Transform:
   m_GameObject: {fileID: 496372491}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.39, y: -2.28, z: 0}
+  m_LocalPosition: {x: -3.5, y: -2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3143,18 +3143,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05698383, y: -0.05427009}
+  m_Offset: {x: 0.1642384, y: 0.019064903}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2.057143}
-    newSize: {x: 2, y: 2.057143}
+    oldSize: {x: 3, y: 2.5}
+    newSize: {x: 3, y: 2.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8860323, y: 1.948603}
+  m_Size: {x: 2.9574509, y: 2.4919171}
   m_EdgeRadius: 0
 --- !u!114 &496372495
 MonoBehaviour:
@@ -3169,6 +3169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 1039106996}
+  PlayerUI: {fileID: 1108628833}
   dialogueText: {fileID: 965600055}
   dialogueLines:
   - Hello
@@ -3177,6 +3178,9 @@ MonoBehaviour:
   endScreenAnimator: {fileID: 481577597}
   wordSpeed: 0.05
   pressPrompt: {fileID: 584482930}
+  catSpriteRenderer: {fileID: 496372492}
+  defaultSprite: {fileID: 21300000, guid: e714332d2d8914d45a20d8fc3411d80d, type: 3}
+  talkingSprite: {fileID: 21300000, guid: fa2451167ea13d94f9aecde8a6229157, type: 3}
 --- !u!114 &496372496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3872,7 +3876,7 @@ Transform:
   m_GameObject: {fileID: 584482930}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0.5, z: 1}
+  m_LocalPosition: {x: -3.8, y: -0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6935,7 +6939,6 @@ Transform:
   - {fileID: 2104244406}
   - {fileID: 1527583076}
   - {fileID: 121179037}
-  - {fileID: 1437782416}
   - {fileID: 1738120236}
   - {fileID: 1882593673}
   - {fileID: 212026831}
@@ -7182,7 +7185,7 @@ Transform:
   m_GameObject: {fileID: 1302399219}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3258753, y: -0.73368067, z: -1.0287745}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7874,7 +7877,7 @@ Transform:
   m_LocalScale: {x: 1.6927927, y: 1.6605285, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1247195531}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447368540
 GameObject:
@@ -11196,6 +11199,7 @@ SceneRoots:
   - {fileID: 551932999}
   - {fileID: 1302399220}
   - {fileID: 1247195531}
+  - {fileID: 1437782416}
   - {fileID: 471321386}
   - {fileID: 697811712}
   - {fileID: 496372493}
