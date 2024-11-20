@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CatDialogue : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private string[] dialogueLines; // Dialogue lines for the NPC
+    [SerializeField] private Animator endScreenAnimator;
     private int index;
 
     public float wordSpeed;
@@ -78,8 +80,26 @@ public class CatDialogue : MonoBehaviour
         }
         else
         {
-            resetPanel();
+            EndDialogueSequence();
         }
+    }
+
+    private void EndDialogueSequence()
+    {
+        resetPanel();
+
+        if (endScreenAnimator != null)
+        {
+            endScreenAnimator.SetTrigger("PlayEnding"); // Trigger "TheEndScreen" animation
+        }
+
+        StartCoroutine(ExitToEndMenu()); // Start transition to the EndMenu scene
+    }
+
+    IEnumerator ExitToEndMenu()
+    {
+        yield return new WaitForSeconds(16f); // Wait for the animation to finish
+        SceneManager.LoadScene("EndMenu"); // Load the EndMenu scene
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

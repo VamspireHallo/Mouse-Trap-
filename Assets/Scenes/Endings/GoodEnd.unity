@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 140660656}
   - component: {fileID: 140660655}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: EndCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2824,7 +2824,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481577594}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -3174,6 +3174,7 @@ MonoBehaviour:
   - Hello
   - You are a mouse
   - Goodbye
+  endScreenAnimator: {fileID: 481577597}
   wordSpeed: 0.05
   pressPrompt: {fileID: 584482930}
 --- !u!114 &496372496

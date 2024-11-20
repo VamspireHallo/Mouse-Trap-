@@ -6,13 +6,13 @@ public class HealthPickUp : MonoBehaviour
     public float healthRestoreAmount; // Amount of health to restore
     public Sprite altSprite;         // Alternate sprite to display after pickup
     private SpriteRenderer spriteRenderer;
-    private Collider2D collider;
+    private Collider2D hpCollider;
 
     private void Start()
     {
         // Cache the SpriteRenderer and Collider2D components
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider = GetComponent<Collider2D>();
+        hpCollider = GetComponent<Collider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +43,7 @@ public class HealthPickUp : MonoBehaviour
             spriteRenderer.sprite = altSprite;
         }
 
-        collider.enabled = false;
+        hpCollider.enabled = false;
         StartCoroutine(FadeOutAndDestroy(5f));
     }
 
