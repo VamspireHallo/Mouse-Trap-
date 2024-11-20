@@ -52,6 +52,7 @@ public class CatDialogue : MonoBehaviour
             else
             {
                 PlayerUI.SetActive(false);
+                pressPrompt.SetActive(false);
                 dialoguePanel.SetActive(true);
                 if (catAnimator != null)
                 {
@@ -69,7 +70,6 @@ public class CatDialogue : MonoBehaviour
         index = 0;
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
-        PlayerUI.SetActive(true);
     }
 
     IEnumerator Typing()
@@ -109,7 +109,7 @@ public class CatDialogue : MonoBehaviour
 
     IEnumerator ExitToEndMenu()
     {
-        yield return new WaitForSeconds(16f); // Wait for the animation to finish
+        yield return new WaitForSeconds(20f); // Wait for the animation to finish
         SceneManager.LoadScene("EndMenu"); // Load the EndMenu scene
     }
 
