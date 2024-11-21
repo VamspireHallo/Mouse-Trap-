@@ -67,8 +67,9 @@ public class Inventory : MonoBehaviour
                 inventoryCollection.RemoveObject(redactedObj); // Remove redactedObj if it's still in the collection
             }
 
-            // Add the new object to the inventory
+            // Add the new object to the inventory and update index
             inventoryCollection.AddObject(inventoryObj);
+            currentIndex = inventoryCollection.CollectedObjects.Count - 1;
 
             // Disable redactedObj if any objects are collected
             if (redactedObj != null && inventoryCollection.CollectedObjects.Count > 0)
@@ -78,6 +79,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+
     // Toggles the inventory view on and off
     public void ToggleInventory()
     {
@@ -86,6 +88,7 @@ public class Inventory : MonoBehaviour
         if (inventoryOpen)
         {
             SoundManager.PlaySound("openinv");
+            currentIndex = inventoryCollection.CollectedObjects.Count - 1;
             ShowCurrentObjUI();
             playerController.enabled = false;
             Time.timeScale = 0f;
@@ -114,6 +117,9 @@ public class Inventory : MonoBehaviour
     {
         if (inventoryCollection.CollectedObjects.Count > 0)
         {
+            // Ensure the currentIndex points to the latest object when the inventory opens
+            currentIndex = Mathf.Clamp(currentIndex, 0, inventoryCollection.CollectedObjects.Count - 1);
+
             GameObject currentObj = inventoryCollection.CollectedObjects[currentIndex];
             currentObj.SetActive(true); // Activate inventory UI for the current object
         }
@@ -122,6 +128,7 @@ public class Inventory : MonoBehaviour
             ShowRedactedObj(); // Show redacted if no items collected
         }
     }
+
 
     // Hides the UI of the currently selected inventory item
     private void HideCurrentObjUI()
