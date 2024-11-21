@@ -3185,6 +3185,7 @@ MonoBehaviour:
   - Goodbye and thank you, little mouse.
   endScreenAnimator: {fileID: 481577597}
   catAnimator: {fileID: 496372497}
+  catAudioClip: {fileID: 8300000, guid: f73de7b803a6ade4884679f6cca96c48, type: 3}
   wordSpeed: 0.05
   pressPrompt: {fileID: 584482930}
 --- !u!114 &496372496
@@ -3234,7 +3235,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f73de7b803a6ade4884679f6cca96c48, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

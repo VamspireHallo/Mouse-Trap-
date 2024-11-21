@@ -13,7 +13,8 @@ public class CatDialogue : MonoBehaviour
     [SerializeField] private string[] dialogueLines; // Dialogue lines for the NPC
     [SerializeField] private Animator endScreenAnimator;
     [SerializeField] private Animator catAnimator;
-    private AudioSource catAudioSource;
+    [SerializeField] private AudioClip catAudioClip;
+    private AudioSource catAudioSrc;
     private int index;
 
     public float wordSpeed;
@@ -30,7 +31,7 @@ public class CatDialogue : MonoBehaviour
         }
         resetPanel();
         playerController = FindObjectOfType<PlayerController>();
-        catAudioSource = GetComponent<AudioSource>();
+        catAudioSrc = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -61,7 +62,7 @@ public class CatDialogue : MonoBehaviour
                 {
                     catAnimator.SetTrigger("LookDown");
                 }
-                catAudioSource.Play();
+                catAudioSrc.PlayOneShot(catAudioClip);
                 if (playerController != null) playerController.enabled = false;
                 StartCoroutine(Typing());
             }
