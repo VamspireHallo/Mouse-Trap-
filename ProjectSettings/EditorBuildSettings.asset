@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Kitchen.unity
     guid: 707f9f477d0a73341bcdafa3563cb5b7
   - enabled: 1
-    path: Assets/Scenes/Endings/GoodEnd.unity
+    path: Assets/Scenes/GoodEnd/GoodEnd.unity
     guid: 44cbccd0eeda52143b3f84e77142d6de
   - enabled: 1
     path: Assets/Scenes/Menus/EndMenu.unity
