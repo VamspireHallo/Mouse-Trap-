@@ -3176,11 +3176,10 @@ MonoBehaviour:
   dialogueLines:
   - Hello, my little friend.
   - "You\u2019ve been on a long journey."
-  - "And now you\u2019re here."
-  - Talking to me.
+  - "And now you\u2019re here, talking to me."
   - "It's been so long since I\u2019ve been able to do that\u2026"
-  - I see you found the cheese.
-  - "Don\u2019t worry, I won\u2019t chase you."
+  - I see you found some cheese.
+  - "Don\u2019t worry, I won\u2019t chase you for that."
   - No, I just wanted to say goodbye...
   - Goodbye and thank you, little mouse.
   endScreenAnimator: {fileID: 481577597}
