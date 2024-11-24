@@ -9501,6 +9501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSceneName: KitchenMemory
   pressPrompt: {fileID: 1080706909}
+  numOfObjs: 5
 --- !u!61 &1029675471
 BoxCollider2D:
   m_ObjectHideFlags: 0

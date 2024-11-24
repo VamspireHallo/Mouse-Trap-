@@ -7,12 +7,30 @@ public class MemoryTransition : MonoBehaviour
 {
     [SerializeField] private string targetSceneName; // The name of the scene to load
     [SerializeField] private GameObject pressPrompt; // UI prompt to display when near the note
+    [SerializeField] private int numOfObjs; // Minimum number of collected objects needed for good ending
 
+    private BoxCollider2D boxCollider; // Reference to the box collider
+    private SpriteRenderer spriteRenderer; // Reference to object sprite
     private bool isPlayerNearby = false;
 
     void Start()
     {
-        //gameObject.SetActive(false);
+        boxCollider = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Ensure the collider is disabled and the sprite is transparent initially
+        if (boxCollider != null)
+        {
+            boxCollider.enabled = false;
+        }
+
+        if (spriteRenderer != null)
+        {
+            Color color = spriteRenderer.color;
+            color.a = 0; // Set alpha to 0 (fully transparent)
+            spriteRenderer.color = color;
+        }
+
         if (pressPrompt != null)
         {
             pressPrompt.SetActive(false); // Ensure the prompt is initially hidden
@@ -21,11 +39,20 @@ public class MemoryTransition : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"Inventory count now: {InventoryCollection.Instance.GetObjsCount()}");
-        if(InventoryCollection.Instance != null && InventoryCollection.Instance.GetObjsCount() >= 5)
+        if(InventoryCollection.Instance != null && InventoryCollection.Instance.GetObjsCount() >= numOfObjs)
         {
-            Debug.Log($"FOUND: {InventoryCollection.Instance.GetObjsCount()}");
-            gameObject.SetActive(true);
+             if (boxCollider != null)
+            {
+                boxCollider.enabled = true;
+            }
+
+            if (spriteRenderer != null)
+            {
+                Color color = spriteRenderer.color;
+                color.a = 1; // Set alpha to 1 (fully visible)
+                spriteRenderer.color = color;
+            }
+
             if (isPlayerNearby && Input.GetKeyDown(KeyCode.Z)) // "Z" to interact
             {
                 SceneManager.LoadScene(targetSceneName);
