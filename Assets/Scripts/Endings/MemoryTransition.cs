@@ -13,10 +13,14 @@ public class MemoryTransition : MonoBehaviour
     private SpriteRenderer spriteRenderer; // Reference to object sprite
     private bool isPlayerNearby = false;
 
+    [SerializeField] public Color normalColor;
+    [SerializeField] public Color glowColor;
+
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null) spriteRenderer.color = normalColor;
 
         // Ensure the collider is disabled and the sprite is transparent initially
         if (boxCollider != null)
@@ -65,6 +69,7 @@ public class MemoryTransition : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = true;
+            if (spriteRenderer != null) spriteRenderer.color = glowColor;
             if (pressPrompt != null)
             {
                 pressPrompt.SetActive(true); // Show the interaction prompt
@@ -77,6 +82,7 @@ public class MemoryTransition : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = false;
+            if (spriteRenderer != null) spriteRenderer.color = normalColor;
             if (pressPrompt != null)
             {
                 pressPrompt.SetActive(false); // Hide the interaction prompt
