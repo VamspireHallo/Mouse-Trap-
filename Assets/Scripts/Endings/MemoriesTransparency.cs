@@ -7,7 +7,7 @@ public class MemoriesTransparency : MonoBehaviour
     [SerializeField] private Transform player; // Reference to the player's transform
     [SerializeField] private float maxDistance = 5f; // Maximum distance for transparency effect
     [SerializeField] private Renderer objRenderer; // The renderer of the obj object
-    [SerializeField] private float minAlpha = 0.1f; // Minimum transparency (0.0 = fully transparent, 1.0 = fully solid)
+    [SerializeField] private float minAlpha = 0.0f; // Minimum transparency (0.0 = fully transparent, 1.0 = fully solid)
 
     private Material objMaterial; // Reference to the material of the obj
 
@@ -31,8 +31,10 @@ public class MemoriesTransparency : MonoBehaviour
         // Calculate the distance between the player and the obj
         float distance = Vector3.Distance(player.position, transform.position);
 
+        float normalizedDistance = Mathf.Clamp01(distance / maxDistance);
+
         // Calculate alpha based on the distance
-        float alpha = Mathf.Clamp(1 - (distance / maxDistance), minAlpha, 1.0f);
+        float alpha = Mathf.Clamp(1 - Mathf.Pow(normalizedDistance, 2), minAlpha, 1.0f);
 
         // Apply the calculated alpha to the obj's material
         SetAlpha(alpha);

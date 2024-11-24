@@ -12,8 +12,7 @@ public class CatNotePopUp : MonoBehaviour
     [SerializeField] private AudioClip closeSound;    // Sound for closing the object
 
     private bool isPlayerNearby = false;
-    private bool isObjOpen = false;
-    private bool OpeningSceneDone = false;
+    private bool isObjOpen = true; // Object starts open
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
 
@@ -29,43 +28,30 @@ public class CatNotePopUp : MonoBehaviour
         if (pressPrompt != null) pressPrompt.SetActive(false);
         if (spriteRenderer != null) spriteRenderer.color = normalColor;
 
-        if (objUI != null && !OpeningSceneDone) 
+        if (objUI != null)
         {
-            /*
-            if (openSound != null && audioSource != null)
-            {
-                audioSource.clip = openSound;
-                audioSource.Play();
-            }*/
-            OpenObj();
+            OpenObj(); // Open the object at the start of the scene
+            PlaySound(openSound);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Toggle object interaction when player presses Z
+        // Allow player to toggle the object's state by pressing Z
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.Z))
         {
-            if (!isObjOpen)
+            if (isObjOpen)
             {
-                if (openSound != null && audioSource != null)
-                {
-                    audioSource.clip = openSound;
-                    audioSource.Play();
-                }
-                OpenObj();
-                if (playerController != null) playerController.enabled = false;
+                CloseObj();
+                PlaySound(closeSound);
+                if (playerController != null) playerController.enabled = true;
             }
             else
             {
-                if (closeSound != null && audioSource != null)
-                {
-                    audioSource.clip = closeSound;
-                    audioSource.Play();
-                }
-                CloseObj();
-                if (playerController != null) playerController.enabled = true;
+                OpenObj();
+                PlaySound(openSound);
+                if (playerController != null) playerController.enabled = false;
             }
         }
     }
@@ -76,7 +62,7 @@ public class CatNotePopUp : MonoBehaviour
         {
             isPlayerNearby = true;
             if (spriteRenderer != null) spriteRenderer.color = glowColor;
-            if (pressPrompt != null && OpeningSceneDone) pressPrompt.SetActive(true);
+            if (pressPrompt != null && !isObjOpen) pressPrompt.SetActive(true);
         }
     }
 
@@ -92,18 +78,27 @@ public class CatNotePopUp : MonoBehaviour
 
     private void OpenObj()
     {
-        if (pressPrompt != null) pressPrompt.SetActive(false);
+        if (pressPrompt != null) pressPrompt.SetActive(false); // Hide the prompt when opening the object
         if (objUI != null) objUI.SetActive(true);
 
         isObjOpen = true;
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; // Pause the game when the object is open
     }
 
     private void CloseObj()
     {
         if (objUI != null) objUI.SetActive(false);
+
         isObjOpen = false;
-        Time.timeScale = 1f;
-        OpeningSceneDone = true;
+        Time.timeScale = 1f; // Resume the game when the object is closed
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
     }
 }

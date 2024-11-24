@@ -627,7 +627,7 @@ Transform:
   m_GameObject: {fileID: 79224277}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.294722, y: 0.3790598, z: -1364.5609}
+  m_LocalPosition: {x: 31.294722, y: 0.3790598, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4102,7 +4102,7 @@ Transform:
   m_GameObject: {fileID: 522439267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.294722, y: 5.12094, z: 1364.5609}
+  m_LocalPosition: {x: -16.294722, y: 5.12094, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4801,7 +4801,7 @@ Transform:
   m_GameObject: {fileID: 603482575}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.38606986, w: 0.92246956}
-  m_LocalPosition: {x: 15.359721, y: -7.79194, z: -1364.5609}
+  m_LocalPosition: {x: 15.359721, y: -7.79194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7860,7 +7860,7 @@ Transform:
   m_GameObject: {fileID: 896632725}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.104721, y: 0.5990596, z: -1364.5609}
+  m_LocalPosition: {x: 15.104721, y: 0.5990596, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8465,7 +8465,7 @@ Transform:
   m_GameObject: {fileID: 949237839}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.1131, y: -6.6649404, z: -1364.5609}
+  m_LocalPosition: {x: 35.1131, y: -6.6649404, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9502,11 +9502,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSceneName: KitchenMemory
   pressPrompt: {fileID: 1080706909}
-  numOfObjs: 1
+  numOfObjs: 5
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 0.015686275, g: 1, b: 0.5686275, a: 1}
-  audioSource: {fileID: 1029675472}
-  openSound: {fileID: 8300000, guid: 69f988bf34bba6049a46eded1bdc0a92, type: 3}
 --- !u!61 &1029675471
 BoxCollider2D:
   m_ObjectHideFlags: 0
