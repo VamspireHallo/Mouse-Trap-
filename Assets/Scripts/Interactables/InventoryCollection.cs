@@ -6,7 +6,8 @@ public class InventoryCollection : MonoBehaviour
 {
     public static InventoryCollection Instance { get; private set; }
     public List<GameObject> CollectedObjects { get; private set; } = new List<GameObject>();
-
+    public int objsCount;
+    
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -23,6 +24,7 @@ public class InventoryCollection : MonoBehaviour
         if (obj != null && !CollectedObjects.Contains(obj))
         {
             CollectedObjects.Add(obj);
+            objsCount++;
         }
     }
 
@@ -37,5 +39,10 @@ public class InventoryCollection : MonoBehaviour
     public void ResetInventory()
     {
         CollectedObjects.Clear();
+    }
+
+    public int GetObjsCount()
+    {
+        return objsCount;
     }
 }

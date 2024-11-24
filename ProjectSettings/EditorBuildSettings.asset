@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Kitchen.unity
     guid: 707f9f477d0a73341bcdafa3563cb5b7
   - enabled: 1
+    path: Assets/Scenes/GoodEnd/KitchenMemory.unity
+    guid: 425ae1a0e5d0a714596a8c1ee7828698
+  - enabled: 1
+    path: Assets/Scenes/GoodEnd/DiningMemory.unity
+    guid: 6131af79589cd4448ab3fdd3ff381d15
+  - enabled: 1
+    path: Assets/Scenes/GoodEnd/LivingMemory.unity
+    guid: 0c8262787d2f7c544bccc5350ede6570
+  - enabled: 1
     path: Assets/Scenes/GoodEnd/GoodEnd.unity
     guid: 44cbccd0eeda52143b3f84e77142d6de
   - enabled: 1
