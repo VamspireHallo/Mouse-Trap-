@@ -34,7 +34,7 @@ public class MemoriesTransparency : MonoBehaviour
         float normalizedDistance = Mathf.Clamp01(distance / maxDistance);
 
         // Calculate alpha based on the distance
-        float alpha = Mathf.Clamp(1 - Mathf.Pow(normalizedDistance, 2), minAlpha, 1.0f);
+        float alpha = Mathf.Clamp(1 - Mathf.Pow(normalizedDistance, 3), minAlpha, 1.0f);
 
         // Apply the calculated alpha to the obj's material
         SetAlpha(alpha);
