@@ -6939,6 +6939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1666edc85ae0d6d489e5a6bad657994f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objsCount: 0
 --- !u!4 &1230740758
 Transform:
   m_ObjectHideFlags: 0
@@ -9008,22 +9009,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 803974301192932059, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2420105743905739514, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2591271829966666932, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2591271829966666932, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2591271829966666932, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
-      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2655780001748623857, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
@@ -9032,7 +9021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2655780001748623857, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3296843855339754400, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
       propertyPath: m_Controller
