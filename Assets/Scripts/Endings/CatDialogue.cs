@@ -15,6 +15,7 @@ public class CatDialogue : MonoBehaviour
     [SerializeField] private Animator catAnimator;
     [SerializeField] private AudioClip catAudioClip;
     private AudioSource catAudioSrc;
+    private AudioSource playerAudioSrc;
     private int index;
 
     public float wordSpeed;
@@ -31,7 +32,7 @@ public class CatDialogue : MonoBehaviour
         }
         resetPanel();
         playerController = FindObjectOfType<PlayerController>();
-        playerAudioSource = playerController.GetComponent<AudioSource>();
+        playerAudioSrc = playerController.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -63,6 +64,7 @@ public class CatDialogue : MonoBehaviour
                     catAnimator.SetTrigger("LookDown");
                 }
                 catAudioSrc.PlayOneShot(catAudioClip);
+                playerAudioSrc.enabled = false;
                 if (playerController != null) playerController.enabled = false;
                 StartCoroutine(Typing());
             }

@@ -12,6 +12,7 @@ public class DialogueMemory : MonoBehaviour
     [SerializeField] private GameObject PlayerUI;
     [SerializeField] private PlayerController playerController; // Reference to the player's movement script
     [SerializeField] private Animator playerAnimator; // Reference to the player's animator
+    private AudioSource playerAudioSrc;
 
     private int index;
     private bool isMemoryActive = false;
@@ -19,7 +20,9 @@ public class DialogueMemory : MonoBehaviour
 
     void Start()
     {
+        
         playerController = FindObjectOfType<PlayerController>();
+        playerAudioSrc = playerController.GetComponent<AudioSource>();
         ResetPanel();
     }
 
@@ -57,8 +60,11 @@ public class DialogueMemory : MonoBehaviour
             memoryPanel.SetActive(true);
             PlayerUI.SetActive(false); // Hide PlayerUI during the dialogue
             DisplayCurrentLine();
-            if (playerController != null) playerController.enabled = false;
-
+            if (playerController != null) 
+            {
+                playerAudioSrc.enabled = false;
+                playerController.enabled = false;
+            }
             if (playerAnimator != null)
             {
                 // Set to idle
@@ -94,7 +100,11 @@ public class DialogueMemory : MonoBehaviour
     {
         isMemoryActive = false;
         ResetPanel();
-        if (playerController != null) playerController.enabled = true;
+        if (playerController != null) 
+        {
+            playerAudioSrc.enabled = true;
+            playerController.enabled = true;
+        }
         dialogueDone = true;
     }
 

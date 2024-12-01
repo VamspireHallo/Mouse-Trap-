@@ -19,6 +19,7 @@ public class InteractableObj : MonoBehaviour
     private bool hasNotified = false;
     private SpriteRenderer spriteRenderer;
     private PlayerController playerController;
+    private AudioSource playerAudioSrc;
 
     [SerializeField] public Color normalColor;
     [SerializeField] public Color glowColor;
@@ -41,6 +42,7 @@ public class InteractableObj : MonoBehaviour
         if (spriteRenderer != null) spriteRenderer.color = normalColor;
 
         playerController = FindObjectOfType<PlayerController>();
+        playerAudioSrc = playerController.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -56,6 +58,7 @@ public class InteractableObj : MonoBehaviour
                     audioSource.Play();
                 }
                 OpenObj();
+                playerAudioSrc.enabled = false;
                 if (playerController != null) playerController.enabled = false;
             }
             else
@@ -66,6 +69,7 @@ public class InteractableObj : MonoBehaviour
                     audioSource.Play();
                 }
                 CloseObj();
+                playerAudioSrc.enabled = true;
                 if (playerController != null) playerController.enabled = true;
             }
         }

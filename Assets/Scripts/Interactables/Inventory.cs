@@ -9,10 +9,12 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private GameObject redactedObj; // Reference to the "redacted" object
     [SerializeField] private PlayerController playerController; // Reference to the PlayerController script
+    private AudioSource playerAudioSrc;
 
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
+        playerAudioSrc = playerController.GetComponent<AudioSource>();
         inventoryCollection = InventoryCollection.Instance;
 
         Canvas canvas = GameObject.Find("InventoryObjs")?.GetComponent<Canvas>();
@@ -90,6 +92,7 @@ public class Inventory : MonoBehaviour
             SoundManager.PlaySound("openinv");
             currentIndex = inventoryCollection.CollectedObjects.Count - 1;
             ShowCurrentObjUI();
+            playerAudioSrc.enabled = false;
             playerController.enabled = false;
             Time.timeScale = 0f;
         }
@@ -97,6 +100,7 @@ public class Inventory : MonoBehaviour
         {
             SoundManager.PlaySound("closeinv");
             HideAllObjUIs();
+            playerAudioSrc.enabled = true;
             playerController.enabled = true;
             Time.timeScale = 1f;
         }
