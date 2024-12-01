@@ -17,6 +17,10 @@ public class MemorySceneChanger : MonoBehaviour
         if (dialogueMemory != null && dialogueMemory.dialogueDone && !hasSceneChanged)
         {
             hasSceneChanged = true; // Ensure the scene change happens only once
+            if (transition != null && !transition.gameObject.activeSelf)
+            {
+                transition.gameObject.SetActive(true); // Enable the Animator GameObject
+            }
             StartCoroutine(LoadLevel());
         }
     }
@@ -24,7 +28,7 @@ public class MemorySceneChanger : MonoBehaviour
     IEnumerator LoadLevel()
     {
         // Optional: Play close scene sound
-        SoundManager.PlaySound("closescene");
+        //SoundManager.PlaySound("closescene");
 
         // Trigger transition animation
         if (transition != null) 
