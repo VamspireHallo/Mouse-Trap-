@@ -19,6 +19,10 @@ public class CatAI : MonoBehaviour
     private Seeker seeker;
     private Rigidbody2D rb;
 
+    [SerializeField] private int damage = 1; // Damage dealt to the player
+    [SerializeField] private float knockbackForce = 20f; // Knockback force
+    [SerializeField] private Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -75,14 +79,38 @@ public class CatAI : MonoBehaviour
             currentWaypoint++;
         }
 
-        if(force.x >= 0.01f)
+        if(rb.velocity.x >= 0.01f)
         {
             CatGFX.localScale = new Vector3(1f, 1f, 1f);
         }
-        else if (force.x <= -0.01f)
+        else if (rb.velocity.x <= -0.01f)
         {
             CatGFX.localScale = new Vector3(-1f, 1f, 1f);
         }
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (animator != null)
+            {
+                animator.SetTrigger("Attack");
+            }
+            // Apply damage to the player
+            Health playerHealth = collision.gameObject.GetComponent<Health>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+            }
+
+            // Apply knockback to the player
+            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (playerRb != null)
+            {
+                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                playerRb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            }
+        }
     }
 }
