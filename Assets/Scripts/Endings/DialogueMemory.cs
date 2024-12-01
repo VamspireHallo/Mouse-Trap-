@@ -6,38 +6,31 @@ using TMPro;
 
 public class DialogueMemory : MonoBehaviour
 {
-    [SerializeField] private GameObject dialoguePanel; // The dialogue UI panel
-    [SerializeField] private TextMeshProUGUI dialogueText;       // The text UI for displaying dialogue
-    [SerializeField] private string[] dialogueLines;   // The array of dialogue lines
+    [SerializeField] private GameObject memoryPanel; // The dialogue UI panel
+    [SerializeField] private TextMeshProUGUI memoryText;       // The text UI for displaying dialogue
+    [SerializeField] private string[] memoryLines;   // The array of dialogue lines
     [SerializeField] private KeyCode interactKey = KeyCode.Z; // Key to interact (default: Z)
     [SerializeField] private GameObject PlayerUI;
 
     private bool isPlayerNearby = false;
     private int currentLineIndex = 0;
-    private bool isDialogueActive = false;
+    private bool isMemoryActive = false;
 
     private void Start()
     {
-        // Ensure the dialogue panel is inactive at the start
-        if (dialoguePanel != null)
+        // Ensure the memory panel is inactive at the start
+        if (memoryPanel != null)
         {
-            dialoguePanel.SetActive(false);
+            memoryPanel.SetActive(false);
         }
     }
 
     private void Update()
     {
-        // Check if the player is nearby and presses the interact key
-        if (isPlayerNearby && Input.GetKeyDown(interactKey))
+        // If the memory is active and the player presses the interact key, transition the dialogue
+        if (isMemoryActive && Input.GetKeyDown(interactKey))
         {
-            if (!isDialogueActive)
-            {
-                StartDialogue();
-            }
-            else
-            {
-                AdvanceDialogue();
-            }
+            AdvanceMemory();
         }
     }
 
@@ -46,6 +39,10 @@ public class DialogueMemory : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = true;
+            if (!isMemoryActive)
+            {
+                StartMemory();
+            }
         }
     }
 
@@ -54,50 +51,48 @@ public class DialogueMemory : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = false;
-            EndDialogue();
+            EndMemory();
         }
     }
 
-    private void StartDialogue()
+    private void StartMemory()
     {
-        PlayerUI.SetActive(false);
-        if (dialogueLines.Length > 0)
+        if (memoryLines.Length > 0)
         {
-            isDialogueActive = true;
+            isMemoryActive = true;
             currentLineIndex = 0;
-            dialoguePanel.SetActive(true);
-            UpdateDialogueText();
+            memoryPanel.SetActive(true);
+            UpdateMemoryText();
         }
     }
 
-    private void AdvanceDialogue()
+    private void AdvanceMemory()
     {
         currentLineIndex++;
-        if (currentLineIndex < dialogueLines.Length)
+        if (currentLineIndex < memoryLines.Length)
         {
-            UpdateDialogueText();
+            UpdateMemoryText();
         }
         else
         {
-            EndDialogue();
+            EndMemory();
         }
     }
 
-    private void UpdateDialogueText()
+    private void UpdateMemoryText()
     {
-        if (dialogueText != null)
+        if (memoryText != null)
         {
-            dialogueText.text = dialogueLines[currentLineIndex];
+            memoryText.text = memoryLines[currentLineIndex];
         }
     }
 
-    private void EndDialogue()
+    private void EndMemory()
     {
-        isDialogueActive = false;
-        if (dialoguePanel != null)
+        isMemoryActive = false;
+        if (memoryPanel != null)
         {
-            dialoguePanel.SetActive(false);
+            memoryPanel.SetActive(false);
         }
-        PlayerUI.SetActive(true);
     }
 }
