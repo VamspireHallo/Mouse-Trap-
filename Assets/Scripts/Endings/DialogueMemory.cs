@@ -9,94 +9,33 @@ public class DialogueMemory : MonoBehaviour
     [SerializeField] private GameObject memoryPanel; // The dialogue UI panel
     [SerializeField] private TextMeshProUGUI memoryText; // The text UI for displaying dialogue
     [SerializeField] private string[] memoryLines; // The array of dialogue lines
-    [SerializeField] private KeyCode interactKey = KeyCode.Z; // Key to interact (default: Z)
     [SerializeField] private GameObject PlayerUI;
-    [SerializeField] private float wordSpeed = 0.05f; // Speed of the typing effect
+
 
     private int index;
     private bool isPlayerNearby = false;
-    private int currentLineIndex = 0;
     private bool isMemoryActive = false;
-    private bool isTyping = false; // Track if the text is currently being typed
-    private bool hasDialogueCompleted = false;
 
     void Start()
     {
-        resetPanel();
-        if (memoryPanel != null) memoryPanel.SetActive(false);
-        if (PlayerUI != null) PlayerUI.SetActive(true);
+        ResetPanel();
     }
 
     void Update()
     {
-        // Check for interaction input
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.Z) && !hasDialogueCompleted) 
+        // Allow the player to press Z to advance the dialogue
+        if (isMemoryActive && Input.anyKeyDown)
         {
-            if (memoryPanel.activeInHierarchy)
-            {
-                // If typing is complete, go to the next line
-                if (memoryText.text == memoryLines[index])
-                {
-                    NextLine();
-                }
-                else
-                {
-                    // Finish typing the current line immediately
-                    StopAllCoroutines();
-                    memoryText.text = memoryLines[index];
-                }
-            }
-            else
-            {
-                PlayerUI.SetActive(false);
-                memoryPanel.SetActive(true);
-                StartCoroutine(Typing());
-            }
+            NextLine();
         }
-    }
-
-
-    public void resetPanel()
-    {
-        index = 0;
-        memoryText.text = "";
-        memoryPanel.SetActive(false);
-    }
-
-    IEnumerator Typing()
-    {
-        foreach(char letter in memoryLines[index].ToCharArray())
-        {
-            memoryText.text += letter;
-            yield return new WaitForSeconds(wordSpeed);
-        }
-    }
-
-    public void NextLine()
-    {
-        if(index < memoryLines.Length - 1)
-        {
-            index++;
-            memoryText.text = "";
-            StartCoroutine(Typing());
-        }
-        else
-        {
-            EndDialogueSequence();
-        }
-    }
-
-    private void EndDialogueSequence()
-    {
-        resetPanel();
-        hasDialogueCompleted = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !hasDialogueCompleted)
+        if (collision.CompareTag("Player") && !isMemoryActive)
         {
             isPlayerNearby = true;
+            StartMemory();
         }
     }
 
@@ -105,7 +44,54 @@ public class DialogueMemory : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerNearby = false;
-            resetPanel();
+            ResetPanel();
         }
+    }
+
+    private void StartMemory()
+    {
+        if (memoryLines.Length > 0)
+        {
+            isMemoryActive = true;
+            index = 0;
+            memoryPanel.SetActive(true);
+            PlayerUI.SetActive(false); // Hide PlayerUI during the dialogue
+            DisplayCurrentLine();
+        }
+    }
+
+    private void DisplayCurrentLine()
+    {
+        if (memoryText != null)
+        {
+            memoryText.text = memoryLines[index]; // Display the full line immediately
+        }
+    }
+
+    public void NextLine()
+    {
+        if (index < memoryLines.Length - 1)
+        {
+            index++;
+            DisplayCurrentLine();
+        }
+        else
+        {
+            EndMemory();
+        }
+    }
+
+    private void EndMemory()
+    {
+        isMemoryActive = false;
+        ResetPanel();
+    }
+
+    private void ResetPanel()
+    {
+        index = 0;
+        memoryText.text = "";
+        memoryPanel.SetActive(false);
+        PlayerUI.SetActive(true); // Restore PlayerUI when the dialogue ends
     }
 }
