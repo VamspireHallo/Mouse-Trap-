@@ -7,22 +7,24 @@ using TMPro;
 public class DialogueMemory : MonoBehaviour
 {
     [SerializeField] private GameObject memoryPanel; // The dialogue UI panel
-    [SerializeField] private TextMeshProUGUI memoryText;       // The text UI for displaying dialogue
-    [SerializeField] private string[] memoryLines;   // The array of dialogue lines
+    [SerializeField] private TextMeshProUGUI memoryText; // The text UI for displaying dialogue
+    [SerializeField] private string[] memoryLines; // The array of dialogue lines
     [SerializeField] private KeyCode interactKey = KeyCode.Z; // Key to interact (default: Z)
     [SerializeField] private GameObject PlayerUI;
+    [SerializeField] private float typingSpeed = 0.05f; // Speed of the typing effect
 
     private bool isPlayerNearby = false;
     private int currentLineIndex = 0;
     private bool isMemoryActive = false;
+    private bool isTyping = false; // Track if the text is currently being typed
+    private Coroutine typingCoroutine;
 
     private void Start()
     {
-        // Ensure the memory panel is inactive at the start
-        if (memoryPanel != null)
-        {
-            memoryPanel.SetActive(false);
-        }
+        // Ensure the memory panel and PlayerUI are inactive at the start
+        if (memoryPanel != null) memoryPanel.SetActive(false);
+
+        if (PlayerUI != null) PlayerUI.SetActive(true); // Ensure PlayerUI is active initially
     }
 
     private void Update()
@@ -61,17 +63,29 @@ public class DialogueMemory : MonoBehaviour
         {
             isMemoryActive = true;
             currentLineIndex = 0;
-            memoryPanel.SetActive(true);
-            UpdateMemoryText();
+
+            if (PlayerUI != null) PlayerUI.SetActive(false); // Hide PlayerUI
+            if (memoryPanel != null) memoryPanel.SetActive(true); // Show memory dialogue
+
+            DisplayCurrentLine();
         }
     }
 
     private void AdvanceMemory()
     {
+        if (typingCoroutine != null)
+        {
+            // If the text is still typing, stop the coroutine and display the full line immediately
+            StopCoroutine(typingCoroutine);
+            memoryText.text = memoryLines[currentLineIndex];
+            isTyping = false;
+            return;
+        }
+
         currentLineIndex++;
         if (currentLineIndex < memoryLines.Length)
         {
-            UpdateMemoryText();
+            DisplayCurrentLine();
         }
         else
         {
@@ -79,20 +93,31 @@ public class DialogueMemory : MonoBehaviour
         }
     }
 
-    private void UpdateMemoryText()
+    private void DisplayCurrentLine()
     {
         if (memoryText != null)
         {
-            memoryText.text = memoryLines[currentLineIndex];
+            memoryText.text = ""; // Clear the text
+            typingCoroutine = StartCoroutine(Typing(memoryLines[currentLineIndex]));
         }
+    }
+
+    private IEnumerator Typing(string line)
+    {
+        isTyping = true;
+        foreach (char letter in line.ToCharArray())
+        {
+            memoryText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        isTyping = false;
     }
 
     private void EndMemory()
     {
         isMemoryActive = false;
-        if (memoryPanel != null)
-        {
-            memoryPanel.SetActive(false);
-        }
+
+        if (memoryPanel != null) memoryPanel.SetActive(false); // Hide memory dialogue
+        if (PlayerUI != null) PlayerUI.SetActive(true); // Show PlayerUI
     }
 }
