@@ -10173,9 +10173,7 @@ MonoBehaviour:
   - "Luci, you don\u2019t need to eat all of it at once."
   - '*Giggling*'
   - "You\u2019re pretty hungry aren\u2019t you?"
-  interactKey: 122
   PlayerUI: {fileID: 891655859}
-  wordSpeed: 0.05
 --- !u!61 &1758876497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10468,8 +10466,8 @@ RectTransform:
   - {fileID: 1664473694}
   m_Father: {fileID: 1153133696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.06565626, y: 0.703}
-  m_AnchorMax: {x: 0.94564074, y: 0.9480001}
+  m_AnchorMin: {x: 0.06534376, y: 0.24800001}
+  m_AnchorMax: {x: 0.9331875, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11224,9 +11222,7 @@ MonoBehaviour:
   memoryLines:
   - "You\u2019ve grown quite a bit since then, Luci"
   - Look how tiny you were.
-  interactKey: 122
   PlayerUI: {fileID: 891655859}
-  wordSpeed: 0.05
 --- !u!1 &1976558004
 GameObject:
   m_ObjectHideFlags: 0
@@ -12016,9 +12012,7 @@ MonoBehaviour:
   memoryLines:
   - Look how adorable you are!
   - I knew red would suit you.
-  interactKey: 122
   PlayerUI: {fileID: 891655859}
-  wordSpeed: 0.05
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
