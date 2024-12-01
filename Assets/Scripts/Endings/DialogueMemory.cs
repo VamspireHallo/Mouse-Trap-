@@ -10,14 +10,16 @@ public class DialogueMemory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI memoryText; // The text UI for displaying dialogue
     [SerializeField] private string[] memoryLines; // The array of dialogue lines
     [SerializeField] private GameObject PlayerUI;
-
+    [SerializeField] private PlayerController playerController; // Reference to the player's movement script
+    [SerializeField] private Animator playerAnimator; // Reference to the player's animator
 
     private int index;
-    private bool isPlayerNearby = false;
     private bool isMemoryActive = false;
+    public bool dialogueDone = false;
 
     void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
         ResetPanel();
     }
 
@@ -34,7 +36,6 @@ public class DialogueMemory : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !isMemoryActive)
         {
-            isPlayerNearby = true;
             StartMemory();
         }
     }
@@ -43,7 +44,6 @@ public class DialogueMemory : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isPlayerNearby = false;
             ResetPanel();
         }
     }
@@ -57,6 +57,15 @@ public class DialogueMemory : MonoBehaviour
             memoryPanel.SetActive(true);
             PlayerUI.SetActive(false); // Hide PlayerUI during the dialogue
             DisplayCurrentLine();
+            if (playerController != null) playerController.enabled = false;
+
+            if (playerAnimator != null)
+            {
+                // Set to idle
+                playerAnimator.SetBool("isMoving", false); 
+                playerAnimator.SetBool("isFalling", false);
+                playerAnimator.SetBool("isJumping", false);
+            }
         }
     }
 
@@ -85,6 +94,8 @@ public class DialogueMemory : MonoBehaviour
     {
         isMemoryActive = false;
         ResetPanel();
+        if (playerController != null) playerController.enabled = true;
+        dialogueDone = true;
     }
 
     private void ResetPanel()

@@ -5132,6 +5132,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   glowColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+--- !u!95 &942483389 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5227476945303312187, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+  m_PrefabInstance: {fileID: 1756001891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &982099823
 GameObject:
   m_ObjectHideFlags: 0
@@ -9878,6 +9883,67 @@ PolygonCollider2D:
       - {x: 1.3227863, y: -0.14654624}
       - {x: 1.2050304, y: 0.042978287}
   m_UseDelaunayMesh: 0
+--- !u!1001 &1756001891
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271567605725525504, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207272818474512377, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1828248057}
+    - target: {fileID: 6510064367239194692, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+      propertyPath: m_Name
+      value: LevelLoader
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
 --- !u!1 &1756094730
 GameObject:
   m_ObjectHideFlags: 0
@@ -10174,6 +10240,9 @@ MonoBehaviour:
   - '*Giggling*'
   - "You\u2019re pretty hungry aren\u2019t you?"
   PlayerUI: {fileID: 891655859}
+  playerController: {fileID: 693869142}
+  playerAnimator: {fileID: 693869141}
+  dialogueDone: 0
 --- !u!61 &1758876497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10466,10 +10535,10 @@ RectTransform:
   - {fileID: 1664473694}
   m_Father: {fileID: 1153133696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.06534376, y: 0.24800001}
+  m_AnchorMin: {x: 0.06651562, y: 0.158}
   m_AnchorMax: {x: 0.9331875, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.5, y: -67.000015}
+  m_SizeDelta: {x: 3, y: -132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835888548
 MonoBehaviour:
@@ -11223,6 +11292,9 @@ MonoBehaviour:
   - "You\u2019ve grown quite a bit since then, Luci"
   - Look how tiny you were.
   PlayerUI: {fileID: 891655859}
+  playerController: {fileID: 693869142}
+  playerAnimator: {fileID: 693869141}
+  dialogueDone: 0
 --- !u!1 &1976558004
 GameObject:
   m_ObjectHideFlags: 0
@@ -11839,6 +11911,7 @@ GameObject:
   - component: {fileID: 2138676035}
   - component: {fileID: 2138676037}
   - component: {fileID: 2138676036}
+  - component: {fileID: 2138676038}
   m_Layer: 0
   m_Name: KittenCollar
   m_TagString: Untagged
@@ -12013,6 +12086,25 @@ MonoBehaviour:
   - Look how adorable you are!
   - I knew red would suit you.
   PlayerUI: {fileID: 891655859}
+  playerController: {fileID: 693869142}
+  playerAnimator: {fileID: 693869141}
+  dialogueDone: 0
+--- !u!114 &2138676038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138676031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7b1ca10cb0db74081a4589f94aa4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: DiningMemory
+  transition: {fileID: 942483389}
+  transitionTime: 1
+  dialogueMemory: {fileID: 2138676037}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -12045,3 +12137,4 @@ SceneRoots:
   - {fileID: 2138676034}
   - {fileID: 1758876495}
   - {fileID: 1924675898}
+  - {fileID: 1756001891}

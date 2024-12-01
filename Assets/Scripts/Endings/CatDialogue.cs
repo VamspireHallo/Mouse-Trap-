@@ -31,7 +31,7 @@ public class CatDialogue : MonoBehaviour
         }
         resetPanel();
         playerController = FindObjectOfType<PlayerController>();
-        catAudioSrc = GetComponent<AudioSource>();
+        playerAudioSource = playerController.GetComponent<AudioSource>();
     }
 
     void Update()
