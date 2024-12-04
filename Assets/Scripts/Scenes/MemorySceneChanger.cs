@@ -23,6 +23,20 @@ public class MemorySceneChanger : MonoBehaviour
             }
             StartCoroutine(LoadLevel());
         }
+
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (dialogueMemory == null && collision.CompareTag("Player"))
+        {
+            if (transition != null && !transition.gameObject.activeSelf)
+            {
+                transition.gameObject.SetActive(true); // Enable the Animator GameObject
+            }
+            StartCoroutine(LoadLevel());
+        }
     }
 
     IEnumerator LoadLevel()

@@ -63,7 +63,7 @@ public class CatDialogue : MonoBehaviour
                 {
                     catAnimator.SetTrigger("LookDown");
                 }
-                catAudioSrc.PlayOneShot(catAudioClip);
+                //catAudioSrc.PlayOneShot(catAudioClip);
                 playerAudioSrc.enabled = false;
                 if (playerController != null) playerController.enabled = false;
                 StartCoroutine(Typing());
