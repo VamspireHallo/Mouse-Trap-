@@ -18,17 +18,18 @@ public class CatAI : MonoBehaviour
 
     private Seeker seeker;
     private Rigidbody2D rb;
+    private Collider2D catCollider;
 
     [SerializeField] private int damage = 1; // Damage dealt to the player
     [SerializeField] private float knockbackForce = 20f; // Knockback force
     [SerializeField] private Animator animator;
-
 
     // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        catCollider = GetComponent<Collider2D>();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
@@ -53,6 +54,7 @@ public class CatAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (path == null)
         {
             return;
@@ -112,5 +114,26 @@ public class CatAI : MonoBehaviour
                 playerRb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
             }
         }
+    }
+
+    public void StopAndDisappear()
+    {
+        // Stop movement
+        speed = 0;
+        rb.velocity = Vector2.zero;
+
+        if (catCollider != null)
+        {
+            catCollider.enabled = false;
+        }
+
+        // Play disappear animation if available
+        if (animator != null)
+        {
+            animator.SetTrigger("Disappear");
+        }
+
+        // Destroy object after short delay
+        Destroy(gameObject, 4f); // Adjust delay if you have an animation
     }
 }

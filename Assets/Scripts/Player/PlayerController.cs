@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(motion * speed * Time.deltaTime);
 
-        if (transform.position.y < -100f)
+        if (transform.position.y < -20f)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
