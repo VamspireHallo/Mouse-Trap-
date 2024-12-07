@@ -7658,7 +7658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: CatText
-  transition: {fileID: 0}
+  transition: {fileID: 1756001892}
   transitionTime: 1
 --- !u!1 &1374507264
 GameObject:
@@ -9944,6 +9944,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+--- !u!95 &1756001892 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5609525980070859, guid: b33744b4f137a5b41822a89342fb7ca8, type: 3}
+  m_PrefabInstance: {fileID: 1756001891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1756094730
 GameObject:
   m_ObjectHideFlags: 0
