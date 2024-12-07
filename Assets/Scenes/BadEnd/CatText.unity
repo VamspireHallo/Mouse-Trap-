@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 258775883}
+  - component: {fileID: 258775887}
   - component: {fileID: 258775886}
   - component: {fileID: 258775885}
   - component: {fileID: 258775884}
@@ -269,6 +270,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258775882}
   m_CullTransparentMesh: 1
+--- !u!114 &258775887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258775882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14140859298653d4ab4b300dfabbbf8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 5
+  shakeSpeed: 10
+  isShaking: 1
 --- !u!1 &370269878
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 370269879}
+  - component: {fileID: 370269883}
   - component: {fileID: 370269882}
   - component: {fileID: 370269881}
   - component: {fileID: 370269880}
@@ -416,6 +433,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370269878}
   m_CullTransparentMesh: 1
+--- !u!114 &370269883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370269878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14140859298653d4ab4b300dfabbbf8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 5
+  shakeSpeed: 10
+  isShaking: 1
 --- !u!1 &448167954
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +461,7 @@ GameObject:
   - component: {fileID: 448167958}
   - component: {fileID: 448167957}
   - component: {fileID: 448167956}
+  - component: {fileID: 448167960}
   m_Layer: 5
   m_Name: OpeningCanvas
   m_TagString: Untagged
@@ -546,6 +579,19 @@ Canvas:
   m_SortingLayerID: 91548057
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &448167960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448167954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa342f70f3911504a9a83054cb933baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSceneName: BadEnd
 --- !u!1 &663685374
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 669717402}
+  - component: {fileID: 669717406}
   - component: {fileID: 669717405}
   - component: {fileID: 669717404}
   - component: {fileID: 669717403}
@@ -785,6 +832,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669717401}
   m_CullTransparentMesh: 1
+--- !u!114 &669717406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669717401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14140859298653d4ab4b300dfabbbf8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 5
+  shakeSpeed: 10
+  isShaking: 1
 --- !u!1 &1061987884
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,6 +888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278633887}
+  - component: {fileID: 1278633891}
   - component: {fileID: 1278633890}
   - component: {fileID: 1278633889}
   - component: {fileID: 1278633888}
@@ -964,6 +1027,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278633886}
   m_CullTransparentMesh: 1
+--- !u!114 &1278633891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278633886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14140859298653d4ab4b300dfabbbf8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 5
+  shakeSpeed: 10
+  isShaking: 1
 --- !u!1 &1671902517
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +1051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671902518}
+  - component: {fileID: 1671902522}
   - component: {fileID: 1671902521}
   - component: {fileID: 1671902520}
   - component: {fileID: 1671902519}
@@ -1111,6 +1190,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671902517}
   m_CullTransparentMesh: 1
+--- !u!114 &1671902522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671902517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14140859298653d4ab4b300dfabbbf8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 5
+  shakeSpeed: 10
+  isShaking: 1
 --- !u!1 &1698894259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2101314765}
+  - component: {fileID: 2101314769}
   - component: {fileID: 2101314768}
   - component: {fileID: 2101314767}
   - component: {fileID: 2101314766}
@@ -1346,6 +1441,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101314764}
   m_CullTransparentMesh: 1
+--- !u!114 &2101314769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101314764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14140859298653d4ab4b300dfabbbf8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 5
+  shakeSpeed: 10
+  isShaking: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

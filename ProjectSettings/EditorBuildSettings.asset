@@ -33,6 +33,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GoodEnd/GoodEnd.unity
     guid: 44cbccd0eeda52143b3f84e77142d6de
   - enabled: 1
+    path: Assets/Scenes/BadEnd/CatText.unity
+    guid: 511a8bf210ef48942881cb4ee4f05ab5
+  - enabled: 1
+    path: Assets/Scenes/BadEnd/BadEnd.unity
+    guid: 80809a1276992c24884fa6cadeba85e1
+  - enabled: 1
     path: Assets/Scenes/Menus/EndMenu.unity
     guid: d71817ae39909704cacb4b11004ff1f2
   m_configObjects: {}
