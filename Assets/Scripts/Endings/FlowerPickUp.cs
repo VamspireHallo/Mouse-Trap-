@@ -18,13 +18,17 @@ public class FlowerPickUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (flowerCollider != null)
+            {
+                flowerCollider.enabled = false;
+            }
             //Stop the cat and mouse chase
             if (catAI != null)
             {
                 catAI.StopAndDisappear();
             }
 
-            StartCoroutine(FadeOutAndDestroy(5f));
+            StartCoroutine(FadeOutAndDestroy(2f));
         }
     }
 

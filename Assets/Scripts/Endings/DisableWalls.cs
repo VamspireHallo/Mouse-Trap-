@@ -5,8 +5,8 @@ using TMPro;
 
 public class DisableWalls : MonoBehaviour
 {
-    public float disableDuration; // Duration for which the colliders are disabled
-    public TextMeshProUGUI messageText;
+    [SerializeField] public float disableDuration; // Duration for which the colliders are disabled
+    [SerializeField] private GameObject messageText;
     private Collider2D[] objectColliders; // Array to store the colliders of the target object
 
     private void Start()
