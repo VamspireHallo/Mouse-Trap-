@@ -6,12 +6,15 @@ public class FinishLine : MonoBehaviour
 {
     [SerializeField] public CatAI catAI;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (catAI != null)
+        if (collision.CompareTag("Player"))
         {
-            catAI.StopAndDisappear();
+            if (catAI != null)
+            {
+                //End Cat & Mouse Chase
+                catAI.StopAndDisappear();
+            }
         }
     }
 }
