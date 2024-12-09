@@ -13,7 +13,22 @@ public class BadMenuChanger : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            if (playerController != null) playerController.enabled = false;
+            if (playerController != null)
+            {
+                // Stop Player audio
+                AudioSource playerAudio = playerController.GetComponent<AudioSource>();
+                if (playerAudio != null) playerAudio.enabled = false;
+
+                // Set the player's animations to idle
+                Animator playerAnimator = playerController.GetComponent<Animator>();
+                if (playerAnimator != null)
+                {
+                    playerAnimator.SetBool("isMoving", false);
+                    playerAnimator.SetBool("isJumping", false);
+                    playerAnimator.SetBool("isFalling", false);
+                }
+                playerController.enabled = false;
+            }
             if (endScreenAnimator != null)
             {
                 endScreenAnimator.SetTrigger("PlayEnding"); // Trigger End Credits animation

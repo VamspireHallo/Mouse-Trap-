@@ -64,8 +64,18 @@ public class CatDialogue : MonoBehaviour
                     catAnimator.SetTrigger("LookDown");
                 }
                 //catAudioSrc.PlayOneShot(catAudioClip);
-                playerAudioSrc.enabled = false;
-                if (playerController != null) playerController.enabled = false;
+                if (playerController != null)
+                {
+                    playerAudioSrc.enabled = false;
+                    Animator playerAnimator = playerController.GetComponent<Animator>();
+                    if (playerAnimator != null)
+                    {
+                        playerAnimator.SetBool("isMoving", false);
+                        playerAnimator.SetBool("isJumping", false);
+                        playerAnimator.SetBool("isFalling", false);
+                    }
+                    playerController.enabled = false;
+                }
                 StartCoroutine(Typing());
             }
         }

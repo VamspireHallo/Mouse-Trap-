@@ -5,8 +5,6 @@ public class FlowerPickUp : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Collider2D flowerCollider;
-    
-    [SerializeField] public CatAI catAI;
 
     void Start()
     {
@@ -21,11 +19,6 @@ public class FlowerPickUp : MonoBehaviour
             if (flowerCollider != null)
             {
                 flowerCollider.enabled = false;
-            }
-            //Stop the cat and mouse chase
-            if (catAI != null)
-            {
-                catAI.StopAndDisappear();
             }
 
             StartCoroutine(FadeOutAndDestroy(2f));
