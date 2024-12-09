@@ -15,6 +15,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip TransitionClose;
     public AudioClip TransitionOpen;
 
+    public AudioClip CatAttack;
+    public AudioClip CatDeath;
+    public AudioClip GoodMeow;
+    public AudioClip EndCredits;
+
     private static AudioSource audioSrc;
     private static SoundManager instance; // Reference to access non-static variables
 
@@ -65,6 +70,15 @@ public class SoundManager : MonoBehaviour
                 break;
             case "openscene":
                 audioSrc.PlayOneShot(instance.TransitionOpen);
+                break;
+            case "attack":
+                audioSrc.PlayOneShot(instance.CatAttack);
+                break;
+            case "death":
+                audioSrc.PlayOneShot(instance.CatDeath);
+                break;
+            case "endcredits":
+                audioSrc.PlayOneShot(instance.EndCredits);
                 break;
             default:
                 Debug.LogWarning("Sound clip not found for: " + clip);

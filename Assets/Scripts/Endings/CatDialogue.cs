@@ -118,6 +118,7 @@ public class CatDialogue : MonoBehaviour
         hasDialogueCompleted = true;
         if (endScreenAnimator != null)
         {
+            SoundManager.PlaySound("endcredits");
             endScreenAnimator.SetTrigger("PlayEnding"); // Trigger End Credits animation
         }
 

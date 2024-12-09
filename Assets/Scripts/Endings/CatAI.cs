@@ -99,6 +99,9 @@ public class CatAI : MonoBehaviour
             {
                 animator.SetTrigger("Attack");
             }
+
+            SoundManager.PlaySound("attack");
+
             // Apply damage to the player
             Health playerHealth = collision.gameObject.GetComponent<Health>();
             if (playerHealth != null)
@@ -121,6 +124,7 @@ public class CatAI : MonoBehaviour
         // Stop movement
         speed = 0;
         rb.velocity = Vector2.zero;
+        SoundManager.PlaySound("death");
 
         if (catCollider != null)
         {
