@@ -2740,7 +2740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afd5c57113c264478e28f5372924312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: GoodEnd
+  sceneName: Frontyard
   transition: {fileID: 1924966019}
   transitionTime: 1
 --- !u!212 &697901670
